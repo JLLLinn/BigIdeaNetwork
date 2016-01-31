@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ksSwiper'])
 
 .controller('IdeasCtrl', function($scope) {
   try {
@@ -17,7 +17,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('IdeasAlbumCtrl', function($scope) {
-
+  $scope.swiper = {};
+    $scope.next = function() {
+        $scope.swiper.slideNext();
+    };
+    $scope.onReadySwiper = function(swiper) {
+        console.log('onReadySwiper');
+        swiper.on('slideChangeStart', function() {
+            console.log('slideChangeStart');
+        });
+    };
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
