@@ -52,4 +52,26 @@ angular.module('starter.controllers', ['ksSwiper'])
   $scope.settings = {
     enableFriends: false
   };
+  $scope.username = "Jiaxin Lin";
+  $scope.occupation="VP @ Awesome Inc";
+  $scope.origination="CS Student from UIUC";
+  $scope.idea="Mitigate Indigenours Conflicts Through Education in Chile";
+  $scope.idea_project_list=[
+    {
+      name:"Chile HOPE Project"
+    },
+    {
+      name:"Another Chile Education Project"
+    }
+  ];
+  $scope.participating_project_list=[
+    {
+      name:"Help Blind Photographers"
+    },
+    {
+      name:"Corn4CHAMPAIGN"
+    }
+  ];
+  $scope.educations=["UIUC", "Huazhong University", "CU Boulder"]
+  $scope.skills_endorsements=["Comp.Sci.", "Proj. Management"]
 });

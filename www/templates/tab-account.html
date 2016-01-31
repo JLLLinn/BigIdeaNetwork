@@ -1,9 +1,65 @@
 <ion-view view-title="Account">
   <ion-content>
-    <ion-list>
+    <!--<ion-list>
     <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle>
-    </ion-list>
+    </ion-list>-->
+    <div class="text-center padding-top" >
+    	<h3>{{username}}</h3>
+
+    	<hr style="width:50%">
+    	<span>{{occupation}}<br>{{origination}}</span>
+    	
+	</div>
+
+	<div class="list list-inset">
+	  <label class="item item-input">
+	    <textarea style="text-align: center;" placeholder="Big Idea">{{idea}}</textarea>
+	  </label>
+	  <div ng-repeat="idea_project in idea_project_list ">
+		<button class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;">
+		  {{idea_project.name}}
+		</button>
+	  </div>
+	  <hr style="margin-bottom:0;">
+	  <span>Participating</span>
+
+	  <div> 
+		<button ng-repeat="participating_project in participating_project_list " class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;">
+		  {{participating_project.name}}
+		</button>
+	  </div>
+
+	  <hr style="margin-bottom:0;">
+	  <span>Education</span>
+
+	  <div>
+	  	<span ng-repeat="education in educations" >
+			<button class="button button-small button-outline button-positive" style="text-align: left;">
+			  {{education}} 
+			</button>
+		</span>
+	  </div>
+
+	  <hr style="margin-bottom:0;">
+	  <span>Skills, Endorsements</span>
+
+	  <div>
+	  	<span ng-repeat="skills_endorsement in skills_endorsements" >
+			<button class="button button-small button-outline button-positive" style="text-align: left;">
+			  {{skills_endorsement}} 
+			</button>
+		</span>
+	  </div>
+
+
+	</div>
+
+	
+
+
+
+</div>
   </ion-content>
 </ion-view>
