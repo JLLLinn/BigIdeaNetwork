@@ -73,5 +73,15 @@ angular.module('starter.controllers', ['ksSwiper'])
     }
   ];
   $scope.educations=["UIUC", "Huazhong University", "CU Boulder"]
-  $scope.skills_endorsements=["Comp.Sci.", "Proj. Management"]
+  $scope.skills_endorsements=[
+  {
+    skill:"Comp.Sci.",
+    endorsements:3
+  }, 
+  {
+    skill:"Proj. Management",
+    endorsements:18
+  }]
+})
+.controller('AccountEditCtrl', function($scope) {
 });
