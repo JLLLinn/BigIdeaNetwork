@@ -88,7 +88,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+  .state('tab.account-edit', {
+    url: '/account/edit',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-account-edit.html',
+        controller: 'AccountEditCtrl'
+      }
+    }
+  })
+  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/ideas');

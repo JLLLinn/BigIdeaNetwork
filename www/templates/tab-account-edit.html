@@ -6,39 +6,10 @@
     </ion-toggle>
     </ion-list>-->
     <div class="text-center padding-top" >
-    	
-
-    	<div ng-hide="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled">
-	      <h3>{{username}}</h3>
-	    </div>
-	    <span ng-show="usernameEnabled">
-	      <input ng-model="username" style="text-align:center;"><br>
-	      <a href="#" ng-click="usernameEnabled=!usernameEnabled">Save</a>
-	    </span>
-
+    	<h3>{{username}}</h3>
 
     	<hr style="width:50%">
-
-
-    	<span ng-hide="occupationEnabled" ng-click="occupationEnabled=!occupationEnabled">
-	      {{occupation}}
-	    </span>
-	    <span ng-show="occupationEnabled">
-	      <input ng-model="occupation" style="text-align:center;"><br>
-	      <a href="#" ng-click="occupationEnabled=!occupationEnabled">Save</a>
-	    </span>
-		<br>
-	    <span ng-hide="originationEnabled" ng-click="originationEnabled=!originationEnabled">
-	      {{origination}}
-	    </span>
-	    <span ng-show="originationEnabled">
-	      <input ng-model="origination" style="text-align:center;"><br>
-	      <a href="#" ng-click="originationEnabled=!originationEnabled">Save</a>
-	    </span>
-    	
-
-    	
-    	
+    	<span>{{occupation}}<br>{{origination}}</span>
     	
 	</div>
 
@@ -69,7 +40,6 @@
 			  {{education}} 
 			</button>
 		</span>
-		<a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
 	  </div>
 
 	  <hr style="margin-bottom:0;">
@@ -78,19 +48,18 @@
 	  <div>
 	  	<span ng-repeat="skills_endorsement in skills_endorsements" >
 			<button class="button button-small button-outline button-positive" style="text-align: left;">
-			  {{skills_endorsement.skill}} - {{skills_endorsement.endorsements}}
+			  {{skills_endorsement}} 
 			</button>
 		</span>
-		<a class="button button-icon icon button-small ion-plus-round" style="padding: 2px 4px 1px;"></a>
 	  </div>
 
 
 	</div>
 
-	<div class="text-center">
-		<a class="button button-outline button-assertive" style="text-align: left;" href="#tab/account/edit">
-			  Edit Profile (Do we need it?)
-		</a>
-	</div>
+	
+
+
+
+</div>
   </ion-content>
 </ion-view>
