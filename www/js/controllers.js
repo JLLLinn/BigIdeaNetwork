@@ -27,6 +27,14 @@ angular.module('starter.controllers', ['ksSwiper'])
             console.log('slideChangeStart');
         });
     };
+  $scope.slideheight = (screen.height)/2;
+  $scope.testarray = [
+    {name:"Improving the poverty condition in underdeveloped countries"},
+    {name:"Teaching kids living in remote areas"},
+    {name:"Improve medical facilities in rural areas"},
+    {name:"fly"},
+    {name:"newgo"},
+  ];
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
