@@ -47,9 +47,9 @@
 	    <textarea style="text-align: center;" placeholder="Big Idea">{{idea}}</textarea>
 	  </label>
 	  <div ng-repeat="idea_project in idea_project_list ">
-		<button class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;">
+		<a class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;" href="#tab/account/my-project">
 		  {{idea_project.name}}
-		</button>
+		</a>
 	  </div>
 	  <hr style="margin-bottom:0;">
 	  <span>Participating</span>

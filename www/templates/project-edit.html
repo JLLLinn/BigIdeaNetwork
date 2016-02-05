@@ -1,0 +1,45 @@
+<ion-view view-title="Create A Project">
+  <ion-content>
+   <div class="text-center padding-top" >
+    	
+
+    	<div ng-hide="projectnameEnabled" ng-click="projectnameEnabled=!projectnameEnabled">
+	      <h3>{{projectname}}</h3>
+	    </div>
+	    <span ng-show="projectnameEnabled">
+	      <input ng-model="projectname" style="text-align:center;"><br>
+	      <a href="#" ng-click="projectnameEnabled=!projectnameEnabled">Save</a>
+	    </span>
+
+
+    	<hr style="width:50%">    	
+    	
+    	
+	</div>
+        <h4>Leader</h4>
+        <img src="img/adam.jpg" height="60" width="60"><br>
+        <h4>Participants</h4>
+        <a class="button button-outline" style="text-align: left;">Add Participant</a>
+	  <hr style="margin-bottom:0;">
+	  <h4>Description</h4>
+	  <textarea rows="4" cols="25" style="border:solid 1px grey;">
+Click to Enter Description.
+(Under 140 characters)
+      </textarea>
+	<hr style="margin-bottom:0;">
+          <h4>Tasks</h4>
+	<textarea rows="3" cols="25" style="border:solid 1px grey;">
+Task Name
+Enter Some Initial Tasks Here
+      </textarea>
+    <hr style="margin-bottom:0;">
+          <h4>Places</h4>
+    <a class="button button-outline" style="text-align: left;">Add Tags</a>
+<br>	
+<div class="text-center">
+		<a class="button button-outline button-assertive" style="text-align: left;" href="#tab/account/edit">
+			  Done
+		</a>
+	</div> 
+  </ion-content>
+</ion-view>

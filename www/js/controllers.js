@@ -91,5 +91,39 @@ angular.module('starter.controllers', ['ksSwiper'])
     endorsements:18
   }]
 })
+.controller('projectctrl', function($scope) {
+  $scope.projectname = "Chile HOPE Project";
+  $scope.projectnameEnabled=false;
+  $scope.slide=false;
+  $scope.progress_list=[
+    {
+      name:"Brainstorm Ideas",
+      detail:"Think about"
+    },
+    {
+      name:"Design mocks 4 app",
+      detail:"Use mock tools to build a template application that would allow testing and demos."
+    },
+    {
+      name:"Conduct Interview",
+      detail:"Interview with several potential users in order to have a better understanding of how the product will work."
+    }
+  ];
+   $scope.place_list=[
+    {
+      name:"Champaign"
+    },
+    {
+      name:"Chicago"
+    },
+    {
+      name:"Taipei"
+    }
+  ];
+})
+.controller('ProjectEditCtrl', function($scope) {
+  $scope.projectname = "Help Blind Photographers";
+  $scope.projectnameEnabled=false;
+})
 .controller('AccountEditCtrl', function($scope) {
 });

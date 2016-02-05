@@ -98,7 +98,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-  ;
+.state('tab.my-project', {
+    url: '/account/my-project',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-project.html',
+        controller: 'projectctrl'
+      }
+    }
+  })
+.state('tab.project-edit', {
+    url: '/account/project-edit',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/project-edit.html',
+        controller: 'ProjectEditCtrl'
+      }
+    }
+  }) 
+ ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/ideas');
