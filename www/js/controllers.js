@@ -1,17 +1,13 @@
 angular.module('starter.controllers', ['ksSwiper'])
 
-.controller('IdeasCtrl', function($scope) {
-  try {
-    TagCanvas.Start('myCanvas','tags',{
-      reverse: true,
-      depth: 0.8,
-      maxSpeed: 0.05,
-      wheelZoom: false,
-    });
-  } catch(e) {
-    // something went wrong, hide the canvas container
-    document.getElementById('myCanvasContainer').style.display = 'none';
+.controller('IdeasCtrl', function($scope, Ideas) {
+  $scope.ideas = Ideas.all();
+  $scope.go = function(){
+    
+    
   }
+  console.log($scope.ideas);
+  
 
 
 })
