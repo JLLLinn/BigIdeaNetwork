@@ -5,7 +5,7 @@ angular.module('starter.controllers', ['ksSwiper'])
   console.log($scope.ideas);
 })
 
-.controller('IdeasAlbumCtrl', function($scope, $location,$stateParams, Ideas,$ionicPopup, $timeout) {
+.controller('IdeasAlbumCtrl', function($scope, $state,$location,$stateParams, Ideas,$ionicPopup, $timeout) {
   $scope.ideas = Ideas.get($stateParams.categoryId);
   $scope.swiper = {autoHeight:"true"};
   $scope.next = function() {
@@ -38,7 +38,8 @@ $scope.showPopup = function() {
             //don't allow the user to close unless he enters wifi password
             e.preventDefault();
           } else {
-            $location.path("/tab/account/project-edit");
+            //$location.path("/tab/account/project-edit");
+            $state.go('tab.project-edit');
             return $scope.data.wifi;
           }
         }
