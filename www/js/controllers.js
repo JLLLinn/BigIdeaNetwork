@@ -2,35 +2,62 @@ angular.module('starter.controllers', ['ksSwiper'])
 
 .controller('IdeasCtrl', function($scope, Ideas) {
   $scope.ideas = Ideas.all();
-  $scope.go = function(){
-    
-    
-  }
   console.log($scope.ideas);
-  
-
-
 })
 
-.controller('IdeasAlbumCtrl', function($scope) {
-  $scope.swiper = {};
-    $scope.next = function() {
-        $scope.swiper.slideNext();
-    };
-    $scope.onReadySwiper = function(swiper) {
-        console.log('onReadySwiper');
-        swiper.on('slideChangeStart', function() {
-            console.log('slideChangeStart');
-        });
-    };
-  $scope.slideheight = (screen.height)/2;
-  $scope.testarray = [
-    {name:"Improving the poverty condition in underdeveloped countries"},
-    {name:"Teaching kids living in remote areas"},
-    {name:"Improve medical facilities in rural areas"},
-    {name:"fly"},
-    {name:"newgo"},
-  ];
+.controller('IdeasAlbumCtrl', function($scope, $location,$stateParams, Ideas,$ionicPopup, $timeout) {
+  $scope.ideas = Ideas.get($stateParams.categoryId);
+  $scope.swiper = {autoHeight:"true"};
+  $scope.next = function() {
+      $scope.swiper.slideNext();
+  };
+  $scope.onReadySwiper = function(swiper) {
+      console.log('onReadySwiper');
+      swiper.on('slideChangeStart', function() {
+          console.log('slideChangeStart');
+      });
+  };
+
+// Triggered on a button click, or some other target
+$scope.showPopup = function() {
+  $scope.data = {};
+
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    template: '<input type="text" ng-model="data.wifi">',
+    title: 'Enter Your Idea Below',
+    subTitle: 'Literally, Anything',
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel' },
+      {
+        text: '<b>Go</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          if (!$scope.data.wifi) {
+            //don't allow the user to close unless he enters wifi password
+            e.preventDefault();
+          } else {
+            $location.path("/tab/account/project-edit");
+            return $scope.data.wifi;
+          }
+        }
+      }
+    ]
+  });
+
+  myPopup.then(function(res) {
+    console.log('Tappedd!', res);
+    
+  });
+/*
+  $timeout(function() {
+     myPopup.close(); //close the popup after 3 seconds for some reason
+  }, 3000);
+*/
+ };
+
+  //$scope.slideheight = (screen.height)/2;
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

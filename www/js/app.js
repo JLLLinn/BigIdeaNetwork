@@ -52,7 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   //This is for the coverflow, it is stored under the idea cloud
   //please set the view same as the idea so that we have the back button automatically, and is stored under the view of this particular tab
   .state('tab.idea-album', {
-    url: '/ideas/idea-album',
+    url: '/ideas/idea-album/:categoryId',
     views: {
       'tab-ideas': {
         templateUrl: 'templates/idea-album.html',

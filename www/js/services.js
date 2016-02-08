@@ -133,6 +133,12 @@ angular.module('starter.services', [])
         name:"Be a tutor for high schoolers taking the AP exam in CS"
       }]
 
+    },{
+      name:"Pass a local ordinance against discrimination in every city in Illinois",
+      projects:[{
+        name:"Meetup to discuss strategy this Friday"
+      }]
+
     }]
   }, {
     id: 6,
@@ -202,6 +208,7 @@ angular.module('starter.services', [])
       }
       return null;
     }
+
   };
 })
 

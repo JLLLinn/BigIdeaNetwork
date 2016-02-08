@@ -16,10 +16,9 @@
     </div>
     <div id="tags">
       <ul>
-        <li ng-repeat="category in ideas" on-last-repeat><a href="/">{{category.category}}</a></li>
+        <li ng-repeat="category in ideas" on-last-repeat ><a target="_parent" ng-href="#tab/ideas/idea-album/{{category.id}}" style="font-size: {{category.ideas.length*20}}pt" onclick="alert("hey")">{{category.category}}</a></li>
       </ul>
     </div>
-    <a class="button icon-right  button-outline  ion-chevron-right button-calm" href="#tab/ideas/idea-album">My Ideas Album</a>
-    
+    <!--<a class="button icon-right  button-outline  ion-chevron-right button-calm" href="#tab/ideas/idea-album">My Ideas Album</a>-->
   </ion-content>
 </ion-view>

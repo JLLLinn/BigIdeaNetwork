@@ -11,19 +11,44 @@
     </div>
     <style>
     div.textslide{
-	height:20vh;
+        height:20vh;
         border-style:solid;
-        border-width:5px;
+        border-width:2px;
         border-color:grey;
-}
+      }
+    div.idea-album-title{
+        padding-top: 20%;
+      }
+    .vertical-center{
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     </style>
+    <div class="text-center idea-album-title"><h4>{{ideas.category}} 
+      <a class="button button-small button-icon icon ion-lightbulb" ng-click="showPopup()"></a>
+    </h4></div>
+    <div id="slider" class="myslides padding-top">
+        <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">
+            <ks-swiper-slide ng-repeat="idea in ideas.ideas">
+                <div class="textslide">
 
-    <div id="slider" class="myslides" style="padding-top:30%">
-        <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="3" space-between="5" pagination-clickable="false">
-            <ks-swiper-slide ng-repeat="s in testarray">
-                <div class="textslide">{{s.name}}</div>
+                  <p ng-hide="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
+                    {{idea.name}}
+                  </p>
+                  <div ng-show="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
+                    <p ng-repeat="project in idea.projects">
+                      {{$index}}. {{project.name}}
+                    </p>
+                  </div>
+
+                  
             </ks-swiper-slide>
         </ks-swiper-container>
+    </div>
+    <div class="row padding-top">
+      <div class="col"><a class="button button-icon icon ion-thumbsdown"></a></div>
+      <div class="col"><a class="button button-icon icon ion-thumbsup"></a></div>
     </div>
     
   </ion-content>
