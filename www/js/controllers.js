@@ -49,7 +49,7 @@ $scope.showPopup = function() {
             e.preventDefault();
           } else {
             //$location.path("/tab/account/project-edit");
-            $state.go('tab.project-edit');
+            $state.go('tab.project-create');
             return $scope.data.wifi;
           }
         }
@@ -125,7 +125,7 @@ $scope.showPopup = function() {
     endorsements:18
   }]
 })
-.controller('projectctrl', function($scope) {
+.controller('projectctrl', function($scope, Requests) {
   $scope.projectname = "Chile HOPE Project";
   $scope.projectnameEnabled=false;
   $scope.slide=false;
@@ -133,17 +133,61 @@ $scope.showPopup = function() {
     {
       name:"Brainstorm Ideas",
       detail:"Think about",
-      projectEnabled:"False"
+      projectEnabled:"False",
+      display:false
     },
     {
       name:"Design mocks 4 app",
       detail:"Use mock tools to build a template application that would allow testing and demos.",
-      projectEnabled:"False"
+      projectEnabled:"False",
+      display:true
     },
     {
       name:"Conduct Interview",
       detail:"Interview with several potential users in order to have a better understanding of how the product will work.",
-      projectEnabled:"False"
+      projectEnabled:"False",
+      display:true
+    }
+  ];
+   $scope.place_list=[
+    {
+      name:"Champaign"
+    },
+    {
+      name:"Chicago"
+    },
+    {
+      name:"Taipei"
+    }
+  ];
+   $scope.request_list=Requests.all();
+   $scope.remove = function(request) {
+     Requests.remove(request);
+    };
+
+})
+.controller('particctrl', function($scope) {
+  $scope.projectname = "Help Blind Photographers";
+  $scope.projectnameEnabled=false;
+  $scope.slide=false;
+  $scope.progress_list=[
+    {
+      name:"Brainstorm Ideas",
+      detail:"Think about",
+      projectEnabled:"False",
+      display:false
+    },
+    {
+      name:"Design mocks 4 app",
+      detail:"Use mock tools to build a template application that would allow testing and demos.",
+      projectEnabled:"False",
+      display:true
+    },
+    {
+      name:"Conduct Interview",
+      detail:"Interview with several potential users in order to have a better understanding of how the product will work.",
+      projectEnabled:"False",
+      display:true
     }
   ];
    $scope.place_list=[
@@ -158,7 +202,7 @@ $scope.showPopup = function() {
     }
   ];
 })
-.controller('ProjectEditCtrl', function($scope) {
+.controller('ProjectCreateCtrl', function($scope) {
   $scope.projectname = "Help Blind Photographers";
   $scope.projectnameEnabled=false;
 })

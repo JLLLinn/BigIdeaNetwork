@@ -107,12 +107,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
       }
     }
   })
-.state('tab.project-edit', {
-    url: '/account/project-edit',
+.state('tab.project-create', {
+    url: '/ideas/project-create',
+    views: {
+      'tab-ideas': {
+        templateUrl: 'templates/project-create.html',
+        controller: 'ProjectCreateCtrl'
+      }
+    }
+  })
+.state('tab.partic-project', {
+    url: '/account/partic-project',
     views: {
       'tab-account': {
-        templateUrl: 'templates/project-edit.html',
-        controller: 'ProjectEditCtrl'
+        templateUrl: 'templates/partic-project.html',
+        controller: 'particctrl'
       }
     }
   }) 
