@@ -7,22 +7,12 @@
       </label>
       <style>
         /*html, body { width: 100%; height: 100%; margin: 0; padding: 0; }*/
-        #cloud-dynamic { width: 100%; height: 300px; }
+        #cloud-dynamic { text-align:center; width: 100%; height: 300px; }
       </style>
       <button class="button button-clear">
         Search
       </button>
     </div>
-
-      <!--<jqcloud words="words" width="100" height="350" colors="{{colors}}" delay="10" steps="7" font-size="{from:0.09, to:0.04}"></jqcloud>-->
-
       <jqcloud words="words" id="cloud-dynamic" auto-resize="true" colors="{{colors}}" steps="7" font-size="{from:0.09, to:0.05}"></jqcloud>
-
-    <!-- <div id="tags">
-      <ul>
-        <li ng-repeat="category in ideas" on-last-repeat ><a target="_parent" ng-href="#tab/ideas/idea-album/{{category.id}}" style="font-size: {{category.ideas.length*20}}pt" onclick="alert("hey")">{{category.category}}</a></li>
-      </ul>
-    </div> -->
-    <!--<a class="button icon-right  button-outline  ion-chevron-right button-calm" href="#tab/ideas/idea-album">My Ideas Album</a>-->
   </ion-content>
 </ion-view>

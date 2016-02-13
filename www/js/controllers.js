@@ -35,7 +35,7 @@ $scope.showPopup = function() {
   // An elaborate, custom popup
   var myPopup = $ionicPopup.show({
     template: '<input type="text" ng-model="data.wifi">',
-    title: 'Enter Your Idea Below',
+    title: 'Enter Your Idea Under "'+$scope.ideas.category+'"' ,
     subTitle: 'Literally, Anything',
     scope: $scope,
     buttons: [
