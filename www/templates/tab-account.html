@@ -54,10 +54,9 @@
 	  <hr style="margin-bottom:0;">
 	  <span>Participating</span>
 
-	  <div> 
-		<button ng-repeat="participating_project in participating_project_list " class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;">
+	  <div ng-repeat="participating_project in participating_project_list ">                <a class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;" href="#tab/account/partic-project">
 		  {{participating_project.name}}
-		</button>
+		</a>
 	  </div>
 
 	  <hr style="margin-bottom:0;">

@@ -48,6 +48,31 @@ angular.module('starter.services', [])
     }
   };
 })
+.factory('Requests', function() {
+var requests=[
+    {
+      type:"Participant Add Request",
+      detail:"Smith would like to be a participant"
+    },
+    {
+      type:"Task Add Request",
+      detail:"Interview with Users"
+    },
+    {
+      type:"Place Add Request",
+      detail:"San Francisco"
+    }
+  ];
+
+return {
+    all: function() {
+      return requests;
+    },
+    remove: function(request) {
+      requests.splice(requests.indexOf(request), 1);
+    }
+  };
+})
 .factory('Ideas', function() {
   // Might use a resource here that returns a JSON array
 
