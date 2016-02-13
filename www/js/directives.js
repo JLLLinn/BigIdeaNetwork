@@ -1,4 +1,4 @@
-angular.module('starter.directives', [])
+/*angular.module('starter.directives', [])
 	.directive('onLastRepeat', function() {
 		return function(scope, element, attrs) {
 			if (scope.$last) {
@@ -21,4 +21,4 @@ angular.module('starter.directives', [])
 
 			}
 		};
-	})
+	})*/
