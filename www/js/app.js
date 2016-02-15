@@ -125,6 +125,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
       }
     }
   }) 
+.state('tab.random-project', {
+    url: '/ideas/random-project',
+    views: {
+      'tab-ideas': {
+        templateUrl: 'templates/random-project.html',
+        controller: 'RandomProjectCtrl'
+      }
+    }
+  })
  ;
 
   // if none of the above states are matched, use this as the fallback

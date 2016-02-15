@@ -1,14 +1,14 @@
 <ion-view view-title="Project">
   <ion-content>
-    <div class="text-center padding-top" >
+  <div ng-repeat="project in project_list">
+    <div class="text-center padding-top">
     	
-
-    	<div ng-hide="projectnameEnabled" ng-click="projectnameEnabled=!projectnameEnabled">
-	      <h3>{{projectname}}</h3>
+    	<div ng-hide="project.projectnameEnabled" ng-click="project.projectnameEnabled=!project.projectnameEnabled">
+	      <h3>{{project.projectname}}</h3>
 	    </div>
-	    <span ng-show="projectnameEnabled">
-	      <input ng-model="projectname" style="text-align:center;"><br>
-	      <a href="#" ng-click="projectnameEnabled=!projectnameEnabled">Save</a>
+	    <span ng-show="project.projectnameEnabled">
+	      <input ng-model="project.projectname" style="text-align:center;"><br>
+	      <a href="#" ng-click="project.projectnameEnabled=!project.projectnameEnabled">Save</a>
 	    </span>
 
 
@@ -45,27 +45,28 @@
 }
 	
        </style>
-       <div ng-app="ngAnimate" ng-repeat="progress in progress_list" style="margin: 5px;border:2px solid black;border-radius: 10px;"> 
-	<h4 ng-click="slide=!slide">{{progress.name}}<i class="icon ion-ios-circle-outline" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i><i class="icon ion-ios-circle-filled" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i><div class="col text-right" ng-hide="progress.display">Display<i class="icon ion-checkmark-circled"></i></div></h4>
-	<div class="animate-show" ng-show="slide">Think about different directions and possibilities of the project. Might need intense discussion for this part of work.</div>
+       <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list" style="margin: 5px;border:2px solid black;border-radius: 10px;"> 
+	<h4 ng-click="progress.slide=!progress.slide">{{progress.name}}<i class="icon ion-ios-circle-outline" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i><i class="icon ion-ios-circle-filled" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i><div class="col text-right" ng-hide="progress.display">Display<i class="icon ion-checkmark-circled"></i></div></h4>
+	<div class="animate-show" ng-show="progress.slide">{{progress.detail}}</div>
        </div><br>
 	 <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>  
 	<div> 
 	<hr style="margin-bottom:0;">
           <span>Places</span><br>
-	 <button class="button button-small button-outline button-positive" ng-repeat="place in place_list" style="text-align: left; margin: 3px;">{{place.name}}</button> <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
+	 <button class="button button-small button-outline button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button> <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
 	<hr style="margin-bottom:0;">
           <span>Request</span><br>
 	<ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="request in request_list" type="item-text-wrap">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="request in project.requests" type="item-text-wrap">
         <h2>{{request.type}}</h2>
         <p>{{request.detail}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(request)">
+        <ion-option-button class="button-assertive" ng-click="request_remove(request)">
           Disprove
         </ion-option-button>
       </ion-item>
     </ion-list>
+    </div>
   </ion-content>
 </ion-view>

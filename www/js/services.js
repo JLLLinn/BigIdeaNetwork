@@ -48,31 +48,6 @@ angular.module('starter.services', [])
     }
   };
 })
-.factory('Requests', function() {
-var requests=[
-    {
-      type:"Participant Add Request",
-      detail:"Smith would like to be a participant"
-    },
-    {
-      type:"Task Add Request",
-      detail:"Interview with Users"
-    },
-    {
-      type:"Place Add Request",
-      detail:"San Francisco"
-    }
-  ];
-
-return {
-    all: function() {
-      return requests;
-    },
-    remove: function(request) {
-      requests.splice(requests.indexOf(request), 1);
-    }
-  };
-})
 .factory('Ideas', function() {
   // Might use a resource here that returns a JSON array
 
@@ -236,5 +211,152 @@ return {
 
   };
 })
-
+.factory('Projects', function() {
+    var projects = [{
+      projectname: "Chile HOPE Project",
+      projectnameEnabled: false,
+      progress_list:[{
+        name:"Brainstorm Ideas",
+        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        projectEnabled:"False",
+        slide: false,
+        display:false
+      },
+      {
+        name:"Design mocks 4 app",
+        detail:"Use mock tools to build a template application that would allow testing and demos.",
+        projectEnabled:"False",
+        slide: false,
+        display:true
+      },
+      {
+        name:"Conduct Interview",
+        detail:"Interview with several potential users in order to have a better understanding of how the product will work.",
+        projectEnabled:"False",
+        slide: false,
+        display:true
+      }],
+      place_list:[{
+        name:"Champaign"
+        },
+        {
+        name:"Chicago"
+        },
+        {
+        name:"Taipei"
+        }],
+      requests:[{
+        type:"Participant Add Request",
+        detail:"Smith would like to be a participant"
+        },
+        {
+        type:"Task Add Request",
+        detail:"Interview with Users"
+        },
+        {
+        type:"Place Add Request",
+        detail:"San Francisco"
+        }]
+    }
+    ];
+    return {
+    all: function() {
+      return projects;
+    },
+    request_remove: function(request) {
+      requests.splice(requests.indexOf(request), 1);
+    }
+  };
+})
+.factory('ParticProjects', function() {
+    var projects = [{
+      projectname: "Help Blind Photographers",
+      projectnameEnabled: false,
+      progress_list:[{
+        name:"Brainstorm Ideas",
+        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        projectEnabled:"False",
+        slide: false,
+        display:false
+      },
+      {
+        name:"Design mocks 4 app",
+        detail:"Use mock tools to build a template application that would allow testing and demos.",
+        projectEnabled:"False",
+        slide: false,
+        display:true
+      },
+      {
+        name:"Conduct Interview",
+        detail:"Interview with several potential users in order to have a better understanding of how the product will work.",
+        projectEnabled:"False",
+        slide: false,
+        display:true
+      }],
+      place_list:[{
+        name:"Champaign"
+        },
+        {
+        name:"Chicago"
+        },
+        {
+        name:"Taipei"
+        }]
+    }
+    ];
+    return {
+    all: function() {
+      return projects;
+    }
+  };
+})
+.factory('RandomProjects', function() {
+    var projects = [{
+      projectname: "Help Blind Photographers",
+      projectnameEnabled: false,
+      progress_list:[{
+        name:"Brainstorm Ideas",
+        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        projectEnabled:"False",
+        slide: false,
+        display:false
+      }],
+      place_list:[{
+        name:"Champaign"
+        },
+        {
+        name:"Chicago"
+        },
+        {
+        name:"Taipei"
+        }]
+    }
+    ];
+    return {
+    all: function() {
+      return projects;
+    }
+  };
+})
+.factory('CreateProjects', function() {
+    var project = {
+      projectname: "Help Blind Photographers",
+      projectnameEnabled: false,
+      progress_list:[{
+        name:"Brainstorm Ideas",
+        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        projectEnabled:"False",
+        slide: false,
+        display:false
+      }],
+      place_list:[{
+        name:"Champaign"
+        }]
+    };
+    return {
+    all: function() {
+      return project;
+    }
+  };
+})
 ;

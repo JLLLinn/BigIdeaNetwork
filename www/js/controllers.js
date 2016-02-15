@@ -97,86 +97,21 @@ $scope.showPopup = function() {
   $scope.accountInfo = Account.all();
   
 })
-.controller('projectctrl', function($scope, Requests) {
-  $scope.projectname = "Chile HOPE Project";
-  $scope.projectnameEnabled=false;
-  $scope.slide=false;
-  $scope.progress_list=[
-    {
-      name:"Brainstorm Ideas",
-      detail:"Think about",
-      projectEnabled:"False",
-      display:false
-    },
-    {
-      name:"Design mocks 4 app",
-      detail:"Use mock tools to build a template application that would allow testing and demos.",
-      projectEnabled:"False",
-      display:true
-    },
-    {
-      name:"Conduct Interview",
-      detail:"Interview with several potential users in order to have a better understanding of how the product will work.",
-      projectEnabled:"False",
-      display:true
-    }
-  ];
-   $scope.place_list=[
-    {
-      name:"Champaign"
-    },
-    {
-      name:"Chicago"
-    },
-    {
-      name:"Taipei"
-    }
-  ];
-   $scope.request_list=Requests.all();
-   $scope.remove = function(request) {
-     Requests.remove(request);
+.controller('projectctrl', function($scope, Projects) {
+   $scope.project_list=Projects.all();
+   $scope.request_remove = function(request) {
+     Projects.request_remove(request);
     };
 
 })
-.controller('particctrl', function($scope) {
-  $scope.projectname = "Help Blind Photographers";
-  $scope.projectnameEnabled=false;
-  $scope.slide=false;
-  $scope.progress_list=[
-    {
-      name:"Brainstorm Ideas",
-      detail:"Think about",
-      projectEnabled:"False",
-      display:false
-    },
-    {
-      name:"Design mocks 4 app",
-      detail:"Use mock tools to build a template application that would allow testing and demos.",
-      projectEnabled:"False",
-      display:true
-    },
-    {
-      name:"Conduct Interview",
-      detail:"Interview with several potential users in order to have a better understanding of how the product will work.",
-      projectEnabled:"False",
-      display:true
-    }
-  ];
-   $scope.place_list=[
-    {
-      name:"Champaign"
-    },
-    {
-      name:"Chicago"
-    },
-    {
-      name:"Taipei"
-    }
-  ];
+.controller('particctrl', function($scope, ParticProjects) {
+  $scope.project_list=ParticProjects.all();
 })
-.controller('ProjectCreateCtrl', function($scope) {
-  $scope.projectname = "Help Blind Photographers";
-  $scope.projectnameEnabled=false;
+.controller('RandomProjectCtrl', function($scope, RandomProjects) {
+  $scope.project_list=RandomProjects.all();
+})
+.controller('ProjectCreateCtrl', function($scope, CreateProjects) {
+  $scope.default_project=CreateProjects.all();
 })
 .controller('AccountEditCtrl', function($scope, Account) {
   $scope.accountInfo = Account.all();

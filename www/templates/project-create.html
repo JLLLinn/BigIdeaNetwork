@@ -3,12 +3,12 @@
    <div class="text-center padding-top" >
     	
 
-    	<div ng-hide="projectnameEnabled" ng-click="projectnameEnabled=!projectnameEnabled">
-	      <h3>{{projectname}}</h3>
+    	<div ng-hide="default_project.projectnameEnabled" ng-click="default_project.projectnameEnabled=!default_project.projectnameEnabled">
+	      <h3>{{default_project.projectname}}</h3>
 	    </div>
-	    <span ng-show="projectnameEnabled">
-	      <input ng-model="projectname" style="text-align:center;"><br>
-	      <a href="#" ng-click="projectnameEnabled=!projectnameEnabled">Save</a>
+	    <span ng-show="default_project.projectnameEnabled">
+	      <input ng-model="default_project.projectname" style="text-align:center;"><br>
+	      <a href="#" ng-click="default_project.projectnameEnabled=!default_project.projectnameEnabled">Save</a>
 	    </span>
 
 
