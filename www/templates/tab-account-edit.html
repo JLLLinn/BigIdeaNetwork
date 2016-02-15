@@ -5,57 +5,79 @@
         Enable Friends
     </ion-toggle>
     </ion-list>-->
-    <div class="text-center padding-top" >
-    	<h3>{{username}}</h3>
+    <div class="list list-inset">
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">First Name</span>
+	    <input type="text" value="{{accountInfo.firstname}}">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Last Name</span>
+	    <input type="text" value="{{accountInfo.lastname}}">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Big Idea</span>
+	    <textarea  disabled>{{accountInfo.idea}}</textarea>
+	    <button class="button button-small button-light" style="text-align: left;">Change</button>
+	  </label>
 
-    	<hr style="width:50%">
-    	<span>{{occupation}}<br>{{origination}}</span>
-    	
 	</div>
 
 	<div class="list list-inset">
-	  <label class="item item-input">
-	    <textarea style="text-align: center;" placeholder="Big Idea">{{idea}}</textarea>
-	  </label>
-	  <div ng-repeat="idea_project in idea_project_list ">
-		<button class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;">
+		 <div class="item item-divider">
+		    Idea Projects
+		  </div>
+	  <div class="item" ng-repeat="idea_project in accountInfo.idea_project_list ">
 		  {{idea_project.name}}
-		</button>
 	  </div>
-	  <hr style="margin-bottom:0;">
-	  <span>Participating</span>
+	  
+	  <div class="item item-button-right" >
+		Add project
+	    <button class="button button-light">
+	      <i class="icon ion-plus-round"></i>
+	    </button>
+	  </div>
 
-	  <div> 
-		<button ng-repeat="participating_project in participating_project_list " class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;">
-		  {{participating_project.name}}
-		</button>
+	  <div class="item item-divider">
+		    Participating
+		  </div>
+	  <div class="item" ng-repeat="participating_project in accountInfo.participating_project_list">
+		{{participating_project.name}}
 	  </div>
 
 	  <hr style="margin-bottom:0;">
 	  <span>Education</span>
 
 	  <div>
-	  	<span ng-repeat="education in educations" >
+	  	<span ng-repeat="education in accountInfo.educations" >
 			<button class="button button-small button-outline button-positive" style="text-align: left;">
 			  {{education}} 
 			</button>
 		</span>
+		<a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
 	  </div>
 
 	  <hr style="margin-bottom:0;">
 	  <span>Skills, Endorsements</span>
 
 	  <div>
-	  	<span ng-repeat="skills_endorsement in skills_endorsements" >
+	  	<span ng-repeat="skills_endorsement in accountInfo.skills_endorsements" >
 			<button class="button button-small button-outline button-positive" style="text-align: left;">
-			  {{skills_endorsement}} 
+			  {{skills_endorsement.skill}} - {{skills_endorsement.endorsements}}
 			</button>
 		</span>
+		<a class="button button-icon icon button-small ion-plus-round" style="padding: 2px 4px 1px;"></a>
 	  </div>
 
 
 	</div>
 
+
+	</div>
+	<div class="text-center">
+		<a class="button button-outline button-positive" style="text-align: left;" href="#tab/account">
+			  Done
+		</a>
+	</div>
 	
 
 

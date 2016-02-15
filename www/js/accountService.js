@@ -6,6 +6,8 @@ angular.module('starter.accountService', [])
   // Some fake testing data
   var account = {
     username : "Jiaxin Lin",
+    firstname: "Jiaxin",
+    lastname: "Lin",
     occupation:"VP @ Awesome Inc",
     origination:"CS Student from UIUC",
     idea:"Mitigate Indigenours Conflicts Through Education in Chile",

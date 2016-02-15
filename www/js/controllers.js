@@ -178,5 +178,6 @@ $scope.showPopup = function() {
   $scope.projectname = "Help Blind Photographers";
   $scope.projectnameEnabled=false;
 })
-.controller('AccountEditCtrl', function($scope) {
+.controller('AccountEditCtrl', function($scope, Account) {
+  $scope.accountInfo = Account.all();
 });
