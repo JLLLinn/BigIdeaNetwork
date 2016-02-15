@@ -90,40 +90,12 @@ $scope.showPopup = function() {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, Account) {
   $scope.settings = {
     enableFriends: false
   };
-  $scope.username = "Jiaxin Lin";
-  $scope.occupation="VP @ Awesome Inc";
-  $scope.origination="CS Student from UIUC";
-  $scope.idea="Mitigate Indigenours Conflicts Through Education in Chile";
-  $scope.idea_project_list=[
-    {
-      name:"Chile HOPE Project"
-    },
-    {
-      name:"Another Chile Education Project"
-    }
-  ];
-  $scope.participating_project_list=[
-    {
-      name:"Help Blind Photographers"
-    },
-    {
-      name:"Corn4CHAMPAIGN"
-    }
-  ];
-  $scope.educations=["UIUC", "Huazhong University", "CU Boulder"]
-  $scope.skills_endorsements=[
-  {
-    skill:"Comp.Sci.",
-    endorsements:3
-  }, 
-  {
-    skill:"Proj. Management",
-    endorsements:18
-  }]
+  $scope.accountInfo = Account.all();
+  
 })
 .controller('projectctrl', function($scope, Requests) {
   $scope.projectname = "Chile HOPE Project";

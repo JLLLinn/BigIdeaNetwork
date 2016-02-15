@@ -9,7 +9,7 @@
     	
 
     	<div ng-hide="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled">
-	      <h3>{{username}}</h3>
+	      <h3>{{accountInfo.username}}</h3>
 	    </div>
 	    <span ng-show="usernameEnabled">
 	      <input ng-model="username" style="text-align:center;"><br>
@@ -21,7 +21,7 @@
 
 
     	<span ng-hide="occupationEnabled" ng-click="occupationEnabled=!occupationEnabled">
-	      {{occupation}}
+	      {{accountInfo.occupation}}
 	    </span>
 	    <span ng-show="occupationEnabled">
 	      <input ng-model="occupation" style="text-align:center;"><br>
@@ -29,7 +29,7 @@
 	    </span>
 		<br>
 	    <span ng-hide="originationEnabled" ng-click="originationEnabled=!originationEnabled">
-	      {{origination}}
+	      {{accountInfo.origination}}
 	    </span>
 	    <span ng-show="originationEnabled">
 	      <input ng-model="origination" style="text-align:center;"><br>
@@ -44,9 +44,9 @@
 
 	<div class="list list-inset">
 	  <label class="item item-input">
-	    <textarea style="text-align: center;" placeholder="Big Idea">{{idea}}</textarea>
+	    <textarea style="text-align: center;" placeholder="Big Idea">{{accountInfo.idea}}</textarea>
 	  </label>
-	  <div ng-repeat="idea_project in idea_project_list ">
+	  <div ng-repeat="idea_project in accountInfo.idea_project_list ">
 		<a class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;" href="#tab/account/my-project">
 		  {{idea_project.name}}
 		</a>
@@ -54,7 +54,7 @@
 	  <hr style="margin-bottom:0;">
 	  <span>Participating</span>
 
-	  <div ng-repeat="participating_project in participating_project_list ">                <a class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;" href="#tab/account/partic-project">
+	  <div ng-repeat="participating_project in accountInfo.participating_project_list ">                <a class="button button-block  icon-right ion-chevron-right button-outline button-positive" style="text-align: left;" href="#tab/account/partic-project">
 		  {{participating_project.name}}
 		</a>
 	  </div>
@@ -63,7 +63,7 @@
 	  <span>Education</span>
 
 	  <div>
-	  	<span ng-repeat="education in educations" >
+	  	<span ng-repeat="education in accountInfo.educations" >
 			<button class="button button-small button-outline button-positive" style="text-align: left;">
 			  {{education}} 
 			</button>
@@ -75,7 +75,7 @@
 	  <span>Skills, Endorsements</span>
 
 	  <div>
-	  	<span ng-repeat="skills_endorsement in skills_endorsements" >
+	  	<span ng-repeat="skills_endorsement in accountInfo.skills_endorsements" >
 			<button class="button button-small button-outline button-positive" style="text-align: left;">
 			  {{skills_endorsement.skill}} - {{skills_endorsement.endorsements}}
 			</button>
@@ -88,7 +88,7 @@
 
 	<div class="text-center">
 		<a class="button button-outline button-assertive" style="text-align: left;" href="#tab/account/edit">
-			  Edit Profile (Do we need it?)
+			  Edit Profile
 		</a>
 	</div>
   </ion-content>
