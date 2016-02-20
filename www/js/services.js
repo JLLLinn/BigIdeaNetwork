@@ -4,48 +4,92 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+  // var chats = 
+  // [{
+  //   id: 0,
+  //   name: 'Ben Sparrow',
+  //   lastText: 'You on your way?',
+  //   face: 'img/ben.png'
+  // }, {
+  //   id: 1,
+  //   name: 'Max Lynx',
+  //   lastText: 'Hey, it\'s me',
+  //   face: 'img/max.png'
+  // }, {
+  //   id: 2,
+  //   name: 'Adam Bradleyson',
+  //   lastText: 'I should buy a boat',
+  //   face: 'img/adam.jpg'
+  // }, {
+  //   id: 3,
+  //   name: 'Perry Governor',
+  //   lastText: 'Look at my mukluks!',
+  //   face: 'img/perry.png'
+  // }, {
+  //   id: 4,
+  //   name: 'Mike Harrington',
+  //   lastText: 'This is wicked good ice cream.',
+  //   face: 'img/mike.png'
+  // }]
+  // ;
+
+  var chats = 
+  [{
+    project:"Chile Hope Project",
+    taskChats:[{
+        id: 0,
+        name: 'Brainstrom Ideas',
+        lastText: 'I should buy a boat',
+        face: 'img/ben.png'
+      }, {
+        id: 1,
+        name: 'Design Mock 4 app',
+        lastText: 'Look at my mukluks!',
+        face: 'img/max.png'
+      }, {
+        id: 2,
+        name: 'Conduct Interview',
+        lastText: 'This is wicked good ice cream.',
+        face: 'img/adam.jpg'
+      }]
+    },{
+      project:"Corn4Champaign",
+      taskChats:[{
+          id: 0,
+          name: 'Get Corn',
+          lastText: 'You on your way?',
+          face: 'img/adam.jpg'
+        }, {
+          id: 1,
+          name: 'Go To Chamapign',
+          lastText: 'You on your way?',
+          face: 'img/perry.png'
+        }, {
+          id: 2,
+          name: 'Something Else',
+          lastText: 'You on your way?',
+          face: 'img/adam.jpg'
+        }]
+    }]
+
+  ;
 
   return {
     all: function() {
       return chats;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(project_chat, chat) {
+      project_chat = chats[chats.indexOf(project_chat)];
+      project_chat.taskChats.splice(project_chat.taskChats.indexOf(chat), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
-    }
+    // get: function(chatId) {
+    //   for (var i = 0; i < chats.length; i++) {
+    //     if (chats[i].id === parseInt(chatId)) {
+    //       return chats[i];
+    //     }
+    //   }
+    //   return null;
+    // }
   };
 })
 .factory('Ideas', function() {
