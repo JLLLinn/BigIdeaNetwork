@@ -211,8 +211,8 @@ angular.module('starter.services', [])
 
   };
 })
-.factory('Projects', function() {
-    var projects = [{
+.factory('Project', function() {
+    var project = {
       projectname: "Chile HOPE Project",
       projectnameEnabled: false,
       progress_list:[{
@@ -258,13 +258,13 @@ angular.module('starter.services', [])
         detail:"San Francisco"
         }]
     }
-    ];
+    ;
     return {
     all: function() {
-      return projects;
+      return project;
     },
     request_remove: function(request) {
-      requests.splice(requests.indexOf(request), 1);
+      project.requests.splice(project.requests.indexOf(request), 1);
     }
   };
 })

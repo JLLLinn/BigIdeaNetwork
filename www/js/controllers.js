@@ -97,10 +97,10 @@ $scope.showPopup = function() {
   $scope.accountInfo = Account.all();
   
 })
-.controller('projectctrl', function($scope, Projects) {
-   $scope.project_list=Projects.all();
+.controller('projectctrl', function($scope, Project) {
+   $scope.project=Project.all();
    $scope.request_remove = function(request) {
-     Projects.request_remove(request);
+     Project.request_remove(request);
     };
 
 })
