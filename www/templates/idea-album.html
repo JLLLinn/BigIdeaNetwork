@@ -37,9 +37,9 @@
                     {{idea.name}}
                   </p>
                   <div ng-show="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
-                    <p ng-repeat="project in idea.projects">
+                    <a href="#tab/ideas/random-project" ng-repeat="project in idea.projects">
                       {{$index}}. {{project.name}}
-                    </p>
+                    </a>
                   </div>
 
                   
