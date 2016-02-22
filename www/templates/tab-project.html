@@ -10,12 +10,15 @@
                 </span>
                 <hr style="width:50%">
             </div>
+            <div class="list list-inset">
+                
             <span>Leader</span><br>
             <img src="img/adam.jpg" height="45" width="45"><br>
             <span>Participants</span><br>
             <img src="img/ben.png" height="45" width="45">
             <img src="img/max.png" height="45" width="45">
-            <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
+            <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px;"></a>
+
             <hr style="margin-bottom:0;">
             <span>Progress</span>
             <style>
@@ -36,28 +39,40 @@
                 padding:0 10px;
                 }
             </style>
-            <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list" style="margin: 5px;border:2px solid black;border-radius: 10px;">
-                <h4 ng-click="progress.slide=!progress.slide">
-                    {{progress.name}}<i class="icon ion-ios-circle-outline" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i><i class="icon ion-ios-circle-filled" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
-                    <div class="col text-right" ng-hide="progress.display">Display<i class="icon ion-checkmark-circled"></i></div>
+            <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list" style="margin-top: 5px;border:1px solid black;border-radius: 5px;">
+                <h4 ng-click="progress.slide=!progress.slide" style="display: inline-block;    margin-left: 5px;">
+                    {{progress.name}} 
                 </h4>
+                <i class="icon ion-ios-minus-empty" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i> 
+                <i class="icon ion-ios-checkmark" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
+                <span class="" ng-hide="progress.display">
+                    <i class="icon ion-ios-monitor"></i>
+                </span>
                 <div class="animate-show" ng-show="progress.slide">{{progress.detail}}</div>
-            </div>
-            <br>
-            <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>  
-            <div>
+            </div> 
+            <div style="margin-top: 5px;border:1px solid rgba(0, 0, 0, 0.30);;border-radius: 5px;">
+                <h4 style="display: inline-block; margin-left: 5px; color: rgba(0, 0, 0, 0.30);">
+                    Add Progress
+                </h4>
+            </div>     
+
+                       
+            
                 <hr style="margin-bottom:0;">
                 <span>Places</span><br>
-                <button class="button button-small button-outline button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button> <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
+                <button class="button button-small button-outline button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button> <a class="button button-small button-icon icon ion-plus-round" style="padding: 6px 4px 1px;"></a>
                 <hr style="margin-bottom:0;">
                 <span>Request</span><br>
                 <ion-list>
-                    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="request in project.requests" type="item-text-wrap">
+                    <ion-item class="item-remove-animate item-icon-right" ng-repeat="request in project.requests" type="item-text-wrap">
                         <h2>{{request.type}}</h2>
                         <p>{{request.detail}}</p>
                         <i class="icon ion-chevron-right icon-accessory"></i>
+                        <ion-option-button class="button-positive" ng-click="request_remove(request)">
+                        Yes
+                        </ion-option-button>
                         <ion-option-button class="button-assertive" ng-click="request_remove(request)">
-                            Disprove
+                            No
                         </ion-option-button>
                     </ion-item>
                 </ion-list>
