@@ -6,26 +6,10 @@
         <input type="search" placeholder="Search in my ideas">
       </label>
       <button class="button button-clear">
-        Search
+        Go
       </button>
     </div>
-    <style>
-    div.textslide{
-        height:20vh;
-        border-style:solid;
-        border-width:2px;
-        border-color:grey;
-      }
-    div.idea-album-title{
-        padding-top: 20%;
-      }
-    .vertical-center{
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    </style>
-    <div class="text-center idea-album-title"><h4>{{ideas.category}} 
+    <div class="text-center idea-album-title"><h4>{{ideas.category}}
       <a class="button button-small button-icon icon ion-lightbulb" ng-click="showPopup()"></a>
     </h4></div>
     <div id="slider" class="myslides padding-top">
@@ -42,7 +26,7 @@
                     </a>
                   </div>
 
-                  
+
             </ks-swiper-slide>
         </ks-swiper-container>
     </div>
@@ -50,6 +34,6 @@
       <div class="col"><a class="button button-icon icon ion-thumbsdown"></a></div>
       <div class="col"><a class="button button-icon icon ion-thumbsup"></a></div>
     </div>
-    
+
   </ion-content>
 </ion-view>
