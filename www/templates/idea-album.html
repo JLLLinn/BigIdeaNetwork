@@ -9,30 +9,44 @@
         Go
       </button>
     </div>
-    <div class="text-center idea-album-title"><h4>{{ideas.category}}
-      <a class="button button-small button-icon icon ion-lightbulb" ng-click="showPopup()"></a>
-    </h4></div>
+    <div class="text-center idea-album-title">
+      <h2>
+        {{ideas.category}}
+        <a class="button button-small button-icon icon ion-lightbulb" ng-click="showPopup()"></a>
+      </h2>
+    </div>
     <div id="slider" class="myslides padding-top">
-        <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">
-            <ks-swiper-slide ng-repeat="idea in ideas.ideas">
-                <div class="textslide">
+      <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">
+        <ks-swiper-slide ng-repeat="idea in ideas.ideas">
+          <div class="textslide padding-bottom" on-swipe-up="console.log('swiped up')">
 
-                  <p ng-hide="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
-                    {{idea.name}}
-                  </p>
-                  <div ng-show="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
-                    <a href="#tab/ideas/random-project" ng-repeat="project in idea.projects">
+            <p ng-hide="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
+              {{idea.name}}
+            </p>
+            <div ng-show="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
+              <a href="#tab/ideas/random-project" ng-repeat="project in idea.projects">
                       {{$index}}. {{project.name}}
                     </a>
-                  </div>
+              <br>
+            </div>
 
-
-            </ks-swiper-slide>
-        </ks-swiper-container>
+          </div>
+        </ks-swiper-slide>
+      </ks-swiper-container>
+    </div>
+    <div class="padding-top">
+      <img src="img/ben.png" class="img-rounded">
+      <img src="img/max.png" class="img-rounded">
+      <img src="img/adam.jpg" class="img-rounded">
+      <img src="img/ben.png" class="img-rounded">
+      <img src="img/max.png" class="img-rounded">
+      <img src="img/adam.jpg" class="img-rounded">
     </div>
     <div class="row padding-top">
-      <div class="col"><a class="button button-icon icon ion-thumbsdown"></a></div>
-      <div class="col"><a class="button button-icon icon ion-thumbsup"></a></div>
+      <div class="col">
+          <i id="like" ng-class="{'button button-icon icon ion-ios-heart': liked, 'button button-icon icon ion-ios-heart-outline': !liked}" ng-click="liked=!liked"></i>
+
+      </div>
     </div>
 
   </ion-content>

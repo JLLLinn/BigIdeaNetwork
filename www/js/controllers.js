@@ -88,7 +88,6 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
       enableFriends: false
     };
     $scope.accountInfo = Account.all();
-
   })
   .controller('projectctrl', function($scope, Project) {
     $scope.project = Project.all();
