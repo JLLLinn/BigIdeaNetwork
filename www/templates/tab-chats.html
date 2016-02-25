@@ -1,9 +1,9 @@
 <ion-view view-title="Chats">
   <ion-content>
     <ion-list ng-repeat="project_chat in chats">
-     <div class="item item-divider">
-    {{ project_chat.project}}
-  </div>
+      <div class="item item-divider">
+        {{ project_chat.project}}
+      </div>
 
       <ion-item ng-repeat="chat in project_chat.taskChats" class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
