@@ -12,9 +12,9 @@
     <style>
     div.textslide{
         height:20vh;
-        border-style:solid;
-        border-width:2px;
-        border-color:grey;
+        border-style:none;
+        background-color:#dcdcdc;
+        padding:10%;
       }
     div.idea-album-title{
         padding-top: 20%;
@@ -24,10 +24,21 @@
       top: 50%;
       transform: translateY(-50%);
     }
+    .custom-icon {
+      font-size: 80px;
+      color : gold;
+    }
+    h2{
+      font-weight: 100;
+    }
+    p{
+      font-size: 1.33em;
+      font-weight: 200;
+    }
     </style>
-    <div class="text-center idea-album-title"><h4>{{ideas.category}} 
-      <a class="button button-small button-icon icon ion-lightbulb" ng-click="showPopup()"></a>
-    </h4></div>
+    <div class="text-center idea-album-title"><h2>{{ideas.category}} 
+      <a class="button button-small button-icon icon ion-android-bulb custom-icon" ng-click="showPopup()"></a>
+    </h2></div>
     <div id="slider" class="myslides padding-top">
         <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">
             <ks-swiper-slide ng-repeat="idea in ideas.ideas">

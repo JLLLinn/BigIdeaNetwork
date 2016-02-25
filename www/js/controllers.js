@@ -36,7 +36,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
-      template: '<input type="text" ng-model="data.wifi">',
+      template: '<input type="text" style="border:1px dashed #999999" ng-model="data.wifi">',
       title: 'Enter Your Idea Under "' + $scope.ideas.category + '"',
       subTitle: 'Literally, Anything',
       scope: $scope,
