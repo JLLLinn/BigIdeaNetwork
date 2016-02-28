@@ -326,16 +326,12 @@ angular.module('starter.services', [])
         name:"Taipei"
         }],
       requests:[{
-        type:"Participant Add Request",
+        type:"Add Me",
         detail:"Smith would like to be a participant"
         },
         {
-        type:"Task Add Request",
-        detail:"Interview with Users"
-        },
-        {
-        type:"Place Add Request",
-        detail:"San Francisco"
+        type:"Add Task",
+        detail:"Interview with Users -- John"
         }]
     }
     ;

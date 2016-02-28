@@ -2,33 +2,41 @@
   <ion-content>
     <div class="text-center padding-top">
       <div ng-hide="project.projectnameEnabled" ng-click="project.projectnameEnabled=!project.projectnameEnabled">
-        <h3>{{project.projectname}}</h3>
+        <h3 class="thinner-font">{{project.projectname}}</h3>
       </div>
       <span ng-show="project.projectnameEnabled">
                 <input ng-model="project.projectname" style="text-align:center;"><br>
                 <a href="#" ng-click="project.projectnameEnabled=!project.projectnameEnabled">Save</a>
                 </span>
-      <hr style="width:50%">
     </div>
-    <div class="list list-inset">
+    <div class="list list-inset" style="margin-top : 0px">
+      <div class="row">
+        <div class="col">
+          <span>Leader</span>
+          <br>
+          <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
+          <br>
+          <span>Participants</span>
+          <br>
+          <img class="img-rounded" src="img/ben.png" height="45" width="45">
 
-      <span>Leader</span>
-      <br>
-      <img src="img/adam.jpg" height="45" width="45">
-      <br>
-      <span>Participants</span>
-      <br>
-      <img src="img/ben.png" height="45" width="45">
-      <img src="img/max.png" height="45" width="45">
-      <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px;"></a>
+          <div class="round-button" style="display:inline-block">
+            <div class="round-button-circle"><a href="http://example.com" class="round-button">12</a></div>
+          </div>
 
-      <hr style="margin-bottom:0;">
-      <span>Progress</span>
+
+          <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px;"></a>
+        </div>
+        <div class="col">
+          <span class="thinner-font" style="font-style:italic">Some description of this project, this is a very veryveryvery long description</span>
+        </div>
+      </div>
+      <span>Tasks</span>
       <style>
         .animate-show {
           line-height: 20px;
           opacity: 1;
-          padding: 10px;
+          padding-left: 10px;
           background: white;
         }
 
@@ -44,31 +52,32 @@
           padding: 0 10px;
         }
       </style>
-      <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list" style="margin-top: 5px;border:1px solid black;border-radius: 5px;">
-        <h4 ng-click="progress.slide=!progress.slide" style="display: inline-block;    margin-left: 5px;">
+      <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list">
+
+        <i class="icon ion-ios-circle-outline" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
+        <i class="icon ion-ios-checkmark-outline" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
+        <h4 ng-click="progress.slide=!progress.slide" style="display: inline-block;    margin-left: 5px; margin-bottom:0px">
                     {{progress.name}}
                 </h4>
-        <i class="icon ion-ios-minus-empty" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
-        <i class="icon ion-ios-checkmark" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
+
         <span class="" ng-hide="progress.display">
-                    <i class="icon ion-ios-monitor"></i>
+                    <i class="icon ion-eye"></i>
                 </span>
         <div class="animate-show" ng-show="progress.slide">{{progress.detail}}</div>
       </div>
-      <div style="margin-top: 5px;border:1px solid rgba(0, 0, 0, 0.30);;border-radius: 5px;">
+      <div>
         <h4 style="display: inline-block; margin-left: 5px; color: rgba(0, 0, 0, 0.30);">
-                    Add Progress
+                    Add Task
                 </h4>
       </div>
 
 
 
-      <hr style="margin-bottom:0;">
       <span>Places</span>
       <br>
-      <button class="button button-small button-outline button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button>
+      <button class="button button-small button-clear button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button>
       <a class="button button-small button-icon icon ion-plus-round" style="padding: 6px 4px 1px;"></a>
-      <hr style="margin-bottom:0;">
+      <br>
       <span>Request</span>
       <br>
       <ion-list>
