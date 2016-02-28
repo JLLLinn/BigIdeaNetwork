@@ -278,6 +278,15 @@ angular.module('starter.services', [])
         }
       }
       return null;
+    },
+    search_category: function(category_contains_string){
+      var matched_ideas = new Array();
+      for (var i = 0; i < ideas.length; i++) {
+        if (ideas[i].category.toLowerCase().indexOf(category_contains_string.toLowerCase()) > -1) {
+          matched_ideas.push(ideas[i]);
+        }
+      }
+      return matched_ideas;
     }
 
   };

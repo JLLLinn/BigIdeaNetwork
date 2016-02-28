@@ -32,3 +32,10 @@ textarea {
   -o-appearance: caret;
   appearance: caret;
 }
+.search-result-list .item {
+  border-style: none;
+  padding: 10px
+}
+.search-result-list .item a {
+  text-decoration: none;
+}

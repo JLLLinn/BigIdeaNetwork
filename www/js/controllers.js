@@ -3,7 +3,11 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 .controller('IdeasCtrl', function($scope, Ideas) {
   ideas = Ideas.all();
   words = [];
-  var log = [];
+  $scope.searching = false;
+  $scope.search_data = {
+      text: ''
+    }
+    //var log = [];
   angular.forEach(ideas, function(value, key) {
     words.push({
       'text': value.category,
@@ -11,8 +15,19 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
       'link': '#tab/ideas/idea-album/' + value.id
     });
   });
-  $scope.colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+  $scope.colors = ["#285072","#fc4e2a", "#388383", "#9EB695","#E9AA3B" ];
   $scope.words = words;
+
+
+  $scope.matched_ideas = new Array();
+  $scope.$watch('search_data.text', function(newValue, oldValue) {
+    if (newValue != "") {
+      $scope.searching = true;
+      $scope.matched_ideas = Ideas.search_category(newValue);
+    }else{
+      $scope.searching = false;
+    }
+  });
 })
 
 .controller('IdeasAlbumCtrl', function($scope, $state, $location, $stateParams, Ideas, $ionicPopup, $timeout) {
