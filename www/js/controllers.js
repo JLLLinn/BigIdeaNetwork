@@ -18,6 +18,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 .controller('IdeasAlbumCtrl', function($scope, $state, $location, $stateParams, Ideas, $ionicPopup, $timeout) {
   $scope.ideas = Ideas.get($stateParams.categoryId);
   $scope.showing_ideas = new Array($scope.ideas.ideas.length).fill(true);
+  $scope.liked_ideas = new Array($scope.ideas.ideas.length).fill(false);
   $scope.project_showing_idx = new Array($scope.ideas.ideas.length).fill(0);
   $scope.swiper = {
     autoHeight: "true"
@@ -27,10 +28,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
     reset_showing_ideas()
     $scope.swiper.slideNext();
   };
-  var reset_showing_ideas = function (){
-    alert("reset");
-    $scope.showing_ideas.fill(true);
-  }
+
   $scope.onReadySwiper = function(swiper) {
     console.log('onReadySwiper');
     swiper.on('slideChangeStart', function() {

@@ -54,9 +54,21 @@
         background-color: rgba(255, 255, 255, 1);
       }
 
+      .swiper-slide .img-rounded {
+        max-height: 40px;
+        padding-left: 5px;
+      }
+
       p {
         font-size: 1.33em;
         font-weight: 200;
+      }
+
+      .card-project-name {
+        text-decoration: none;
+        font-weight: 200;
+        color: #387ef5;
+        font-style: italic;
       }
     </style>
     <div class="text-center idea-album-title">
@@ -70,34 +82,30 @@
         <ks-swiper-slide ng-repeat="idea in ideas.ideas">
           <div class="textslide padding-bottom" on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
 
-            <p ng-show="showing_ideas[$index]"  class="vertical-center">
+            <p ng-show="showing_ideas[$index]" class="vertical-center">
               {{idea.name}}
             </p>
-            <div ng-hide="showing_ideas[$index]" class="vertical-center">
-              <a href="#tab/ideas/random-project">
+            <div ng-hide="showing_ideas[$index]" class="vertical-center ">
+              <a class="card-project-name" href="#tab/ideas/random-project">
                       {{idea.projects[project_showing_idx[$index]].name}}
               </a>
               <br>
             </div>
-
+          </div>
+          <div ng-if="!showing_ideas[$index]" class="padding-top">
+            <img ng-src="{{face.url}}" class="img-rounded" ng-repeat="face in idea.projects[project_showing_idx[$index]].faces">
+          </div>
+          <div class="row">
+            <div class="col">
+              <i id="like" ng-class="{'button button-icon icon ion-ios-heart': liked_ideas[$index], 'button button-icon icon ion-ios-heart-outline': !liked_ideas[$index]}" ng-click="liked_ideas[$index]=!liked_ideas[$index]">
+              </i>
+            </div>
           </div>
         </ks-swiper-slide>
       </ks-swiper-container>
     </div>
-    <div class="padding-top">
-      <img src="img/ben.png" class="img-rounded">
-      <img src="img/max.png" class="img-rounded">
-      <img src="img/adam.jpg" class="img-rounded">
-      <img src="img/ben.png" class="img-rounded">
-      <img src="img/max.png" class="img-rounded">
-      <img src="img/adam.jpg" class="img-rounded">
-    </div>
-    <div class="row padding-top">
-      <div class="col">
-        <i id="like" ng-class="{'button button-icon icon ion-ios-heart': liked, 'button button-icon icon ion-ios-heart-outline': !liked}" ng-click="liked=!liked"></i>
 
-      </div>
-    </div>
+
 
   </ion-content>
 </ion-view>

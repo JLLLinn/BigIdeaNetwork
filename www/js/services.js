@@ -139,26 +139,75 @@ angular.module('starter.services', [])
     ideas:[{
       name:"End the gender pay gap by 2020",
       projects:[{
-        name:"Wage shareholder proxy fights to make companies disclose pay scales by gender"
+        name:"Wage shareholder proxy fights to make companies disclose pay scales by gender",
+        faces:[{
+          url:"img/ben.png"
+        },{
+          url:"img/ben.png"
+        },{
+          url:"img/ben.png"
+        }]
       },{
-        name:"Implement Pay Transparency"
+        name:"Implement Pay Transparency",
+        faces:[{
+          url:"img/max.png"
+        },{
+          url:"img/max.png"
+        },{
+          url:"img/max.png"
+        }]
       },{
-        name:"Eliminate Negotiation -- Forbes"
+        name:"Eliminate Negotiation -- Forbes",
+        faces:[{
+          url:"img/adam.jpg"
+        },{
+          url:"img/adam.jpg"
+        },{
+          url:"img/adam.jpg"
+        }]
       }]
     },{
       name:"Achieve a goal of having 50% of CS graduates be women by 2030",
       projects:[{
-        name:"Be a tutor for high schoolers taking the AP exam in CS"
+        name:"Be a tutor for high schoolers taking the AP exam in CS",
+        faces:[{
+          url:"img/mike.png"
+        },{
+          url:"img/mike.png"
+        },{
+          url:"img/mike.png"
+        }]
       },{
-        name:"Increase the Influence of Woman in Comp Science"
+        name:"Increase the Influence of Woman in Comp Science",
+        faces:[{
+          url:"img/perry.png"
+        },{
+          url:"img/perry.png"
+        },{
+          url:"img/perry.png"
+        }]
       }]
 
     },{
       name:"Pass a local ordinance against discrimination in every city in Illinois",
       projects:[{
-        name:"Meetup to discuss strategy this Friday"
+        name:"Meetup to discuss strategy this Friday",
+        faces:[{
+          url:"img/max.png"
+        },{
+          url:"img/max.png"
+        },{
+          url:"img/max.png"
+        }]
       },{
-        name:"Another project for against discrimintion"
+        name:"Another project for against discrimintion",
+        faces:[{
+          url:"img/ben.png"
+        },{
+          url:"img/ben.png"
+        },{
+          url:"img/ben.png"
+        }]
       }]
 
     }]
