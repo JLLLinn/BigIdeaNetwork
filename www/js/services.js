@@ -3,37 +3,7 @@ angular.module('starter.services', [])
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
-  // Some fake testing data
-  // var chats = 
-  // [{
-  //   id: 0,
-  //   name: 'Ben Sparrow',
-  //   lastText: 'You on your way?',
-  //   face: 'img/ben.png'
-  // }, {
-  //   id: 1,
-  //   name: 'Max Lynx',
-  //   lastText: 'Hey, it\'s me',
-  //   face: 'img/max.png'
-  // }, {
-  //   id: 2,
-  //   name: 'Adam Bradleyson',
-  //   lastText: 'I should buy a boat',
-  //   face: 'img/adam.jpg'
-  // }, {
-  //   id: 3,
-  //   name: 'Perry Governor',
-  //   lastText: 'Look at my mukluks!',
-  //   face: 'img/perry.png'
-  // }, {
-  //   id: 4,
-  //   name: 'Mike Harrington',
-  //   lastText: 'This is wicked good ice cream.',
-  //   face: 'img/mike.png'
-  // }]
-  // ;
-
-  var chats = 
+  var chats =
   [{
     project:"Chile Hope Project",
     taskChats:[{
@@ -170,17 +140,25 @@ angular.module('starter.services', [])
       name:"End the gender pay gap by 2020",
       projects:[{
         name:"Wage shareholder proxy fights to make companies disclose pay scales by gender"
+      },{
+        name:"Implement Pay Transparency"
+      },{
+        name:"Eliminate Negotiation -- Forbes"
       }]
     },{
       name:"Achieve a goal of having 50% of CS graduates be women by 2030",
       projects:[{
         name:"Be a tutor for high schoolers taking the AP exam in CS"
+      },{
+        name:"Increase the Influence of Woman in Comp Science"
       }]
 
     },{
       name:"Pass a local ordinance against discrimination in every city in Illinois",
       projects:[{
         name:"Meetup to discuss strategy this Friday"
+      },{
+        name:"Another project for against discrimintion"
       }]
 
     }]

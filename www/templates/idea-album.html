@@ -1,60 +1,82 @@
 <ion-view view-title="My Ideas">
-  <ion-content class="padding text-center">
-    <div class="bar bar-header item-input-inset">
+
+  <ion-content class="padding text-center" scroll="false">
+    <div class="item-input-inset" style="padding: 0;margin-top: -8px;">
       <label class="item-input-wrapper">
         <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" placeholder="Search in my ideas">
+        <input type="search" placeholder="Search for an idea">
       </label>
       <button class="button button-clear">
         Go
       </button>
     </div>
     <style>
-    div.textslide{
-        height:20vh;
-        border-style:none;
-        background-color:#dcdcdc;
-        padding:10%;
+      div.textslide {
+        height: 35vh;
+        border-style: none;
+        background-color: #dcdcdc;
+        padding: 10%;
       }
-    div.idea-album-title{
-        padding-top: 20%;
+
+      div.idea-album-title {
+        padding-top: 5%;
       }
-    .vertical-center{
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .custom-icon {
-      font-size: 80px;
-      color : gold;
-      padding-top: 2%;
-    }
-    h2{
-      font-weight: 100;
-    }
-    p{
-      font-size: 1.33em;
-      font-weight: 200;
-    }
+
+      .vertical-center {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .new-idea-popup .popup-title {
+        font-size: 22px;
+        font-weight: 100;
+      }
+
+      .new-idea-popup .popup-sub-title {
+        font-size: 15px;
+        font-weight: 100;
+      }
+
+      .new-idea-popup .popup-head {
+        border-style: none;
+      }
+
+      .new-idea-popup .popup-buttons {
+        min-height: 0px;
+      }
+
+      .new-idea-popup .popup-buttons .button {
+        min-height: 0px;
+      }
+
+      .new-idea-popup .popup {
+        background-color: rgba(255, 255, 255, 1);
+      }
+
+      p {
+        font-size: 1.33em;
+        font-weight: 200;
+      }
     </style>
     <div class="text-center idea-album-title">
-      <h2>
+      <h2 style="font-weight: 100;">
         {{ideas.category}}
-        <a class="button button-small button-icon icon ion-lightbulb" ng-click="showPopup()"></a>
+        <a style="padding-top:3px; color:gold;" class="button button-small button-icon icon ion-android-bulb" ng-click="showPopup()"></a>
       </h2>
     </div>
     <div id="slider" class="myslides padding-top">
       <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">
         <ks-swiper-slide ng-repeat="idea in ideas.ideas">
-          <div class="textslide padding-bottom" on-swipe-up="console.log('swiped up')">
+          <div class="textslide padding-bottom" on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
 
-            <p ng-hide="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
+            <p ng-show="showing_ideas[$index]"  class="vertical-center">
               {{idea.name}}
             </p>
-            <div ng-show="usernameEnabled" ng-click="usernameEnabled=!usernameEnabled" class="vertical-center">
-              <a href="#tab/ideas/random-project" ng-repeat="project in idea.projects">
-                      {{$index}}. {{project.name}}
-                    </a>
+            <div ng-hide="showing_ideas[$index]" class="vertical-center">
+              <a href="#tab/ideas/random-project">
+                      {{idea.projects[project_showing_idx[$index]].name}}
+              </a>
               <br>
             </div>
 
@@ -72,7 +94,7 @@
     </div>
     <div class="row padding-top">
       <div class="col">
-          <i id="like" ng-class="{'button button-icon icon ion-ios-heart': liked, 'button button-icon icon ion-ios-heart-outline': !liked}" ng-click="liked=!liked"></i>
+        <i id="like" ng-class="{'button button-icon icon ion-ios-heart': liked, 'button button-icon icon ion-ios-heart-outline': !liked}" ng-click="liked=!liked"></i>
 
       </div>
     </div>

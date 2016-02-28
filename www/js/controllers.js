@@ -17,12 +17,20 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 
 .controller('IdeasAlbumCtrl', function($scope, $state, $location, $stateParams, Ideas, $ionicPopup, $timeout) {
   $scope.ideas = Ideas.get($stateParams.categoryId);
+  $scope.showing_ideas = new Array($scope.ideas.ideas.length).fill(true);
+  $scope.project_showing_idx = new Array($scope.ideas.ideas.length).fill(0);
   $scope.swiper = {
     autoHeight: "true"
   };
+
   $scope.next = function() {
+    reset_showing_ideas()
     $scope.swiper.slideNext();
   };
+  var reset_showing_ideas = function (){
+    alert("reset");
+    $scope.showing_ideas.fill(true);
+  }
   $scope.onReadySwiper = function(swiper) {
     console.log('onReadySwiper');
     swiper.on('slideChangeStart', function() {
@@ -30,21 +38,46 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
     });
   };
 
+  $scope.onSwipeDown = function(idx) {
+    if (!$scope.showing_ideas[idx]) {
+      var cur_proj_idx = $scope.project_showing_idx[idx];
+      if (cur_proj_idx < 1) {
+        return;
+      } else {
+        //turn page to show next project
+        $scope.project_showing_idx[idx] -= 1;
+      }
+    }
+  }
+  $scope.onSwipeUp = function(idx) {
+    if (!$scope.showing_ideas[idx]) {
+      var cur_proj_idx = $scope.project_showing_idx[idx];
+      if (cur_proj_idx >= $scope.ideas.ideas[idx].projects.length - 1) {
+        return;
+      } else {
+        //turn page to show next project
+        $scope.project_showing_idx[idx] += 1;
+      }
+    }
+  }
+
   // Triggered on a button click, or some other target
   $scope.showPopup = function() {
     $scope.data = {};
 
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
-      template: '<input type="text" style="border:1px dashed #999999" ng-model="data.wifi">',
-      title: 'Enter Your Idea Under "' + $scope.ideas.category + '"',
-      subTitle: 'Literally, Anything',
+      template: '<textarea type="text" style="border:1px dashed #999999; height:20vh" ng-model="data.wifi"></textarea>',
+      title: $scope.ideas.category,
+      cssClass: 'new-idea-popup',
+      subTitle: 'Enter Your Idea',
       scope: $scope,
       buttons: [{
-        text: 'Cancel'
+        text: 'Cancel',
+        type: 'button-small button-clear'
       }, {
-        text: '<b>Go</b>',
-        type: 'button-positive',
+        text: 'Go',
+        type: 'button-small button-clear button-positive',
         onTap: function(e) {
           if (!$scope.data.wifi) {
             //don't allow the user to close unless he enters wifi password
