@@ -15,7 +15,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
       'link': '#tab/ideas/idea-album/' + value.id
     });
   });
-  $scope.colors = ["#285072","#fc4e2a", "#388383", "#9EB695","#E9AA3B" ];
+  $scope.colors = ["#285072", "#fc4e2a", "#388383", "#9EB695", "#E9AA3B"];
   $scope.words = words;
 
 
@@ -24,7 +24,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
     if (newValue != "") {
       $scope.searching = true;
       $scope.matched_ideas = Ideas.search_category(newValue);
-    }else{
+    } else {
       $scope.searching = false;
     }
   });
@@ -36,17 +36,14 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
   $scope.liked_ideas = new Array($scope.ideas.ideas.length).fill(false);
   $scope.project_showing_idx = new Array($scope.ideas.ideas.length).fill(0);
   $scope.swiper = {
-    autoHeight: "true"
-  };
-
-  $scope.next = function() {
-    reset_showing_ideas()
-    $scope.swiper.slideNext();
+    autoHeight: "true",
+    slidesPerView:"2"
   };
 
   $scope.onReadySwiper = function(swiper) {
-    console.log('onReadySwiper');
+
     swiper.on('slideChangeStart', function() {
+
       console.log('slideChangeStart');
     });
   };

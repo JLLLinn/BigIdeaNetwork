@@ -8,7 +8,12 @@
       text-decoration: none;
       display: block;
       font-size: 1.12em;
-      padding-bottom: 4px;
+      padding-bottom: 5px;
+    }
+
+    .project-btn-list-item .icon-accessory {
+      color: #ccc;
+      font-size: 16px;
     }
   </style>
   <ion-content>
@@ -26,38 +31,35 @@
     </div>
     <div class="list list-inset">
       <span>Big Idea</span>
-      <h4 class="thinner-font padding-left" style="text-align: center;">{{accountInfo.idea}}</h4>
+      <h4 class="thinner-font padding-left">{{accountInfo.idea}}</h4>
       <span>Leading Projects</span>
-      <div class="padding-left">
+      <div class="padding">
         <a class="project-btn-list-item" style="text-align: left;" href="#tab/account/my-project" ng-repeat="idea_project in accountInfo.idea_project_list ">
-        {{idea_project.name}}
+        {{idea_project.name}}<i class="pull-right icon ion-chevron-right icon-accessory"></i>
         </a>
       </div>
       <span>Participating Projects</span>
-      <div class="padding-left">
+      <div class="padding">
         <a class="project-btn-list-item " style="text-align: left;" href="#tab/account/partic-project" ng-repeat="participating_project in accountInfo.participating_project_list ">
-        {{participating_project.name}}
+        {{participating_project.name}} <i class="pull-right icon ion-chevron-right icon-accessory"></i>
         </a>
+
       </div>
       <span>Education</span>
-      <div class="padding-left">
-        <span ng-repeat="education in accountInfo.educations">
-        <button class="button button-small button-outline button-positive" style="text-align: left;">
-        {{education}}
-        </button>
-        </span>
+      <div class="padding">
+        <a style="text-align: left;" href="javascript:void(0)" class="padding-right" ng-repeat="education in accountInfo.educations">
+        &middot;{{education}}
+      </a>
       </div>
       <span>Skills, Endorsements</span>
-      <div class="padding-left">
-        <span ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
-        <button class="button button-small button-outline button-positive" style="text-align: left;">
-        {{skills_endorsement.skill}} - {{skills_endorsement.endorsements}}
-        </button>
-        </span>
+      <div class="padding">
+        <a style="text-align: left;" href="javascript:void(0)" class="padding-right" ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
+        &middot;{{skills_endorsement.skill}}-{{skills_endorsement.endorsements}}
+      </a>
       </div>
     </div>
     <div class="text-center">
-      <a class="button button-outline button-assertive" style="text-align: left;" href="#tab/account/edit">
+      <a class="button button-clear button-assertive" style="text-align: left;" href="#tab/account/edit">
       Edit Profile
       </a>
     </div>
