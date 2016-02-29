@@ -61,12 +61,12 @@
 
       .textslide p {
         font-size: 1.33em;
-        font-weight: 200;
+        font-weight: 300;
       }
 
       .card-project-name {
         text-decoration: none;
-        font-weight: 200;
+        font-weight: 300;
         color: #387ef5;
         font-style: italic;
       }
@@ -78,7 +78,7 @@
       </h2>
     </div>
     <div id="slider" class="myslides padding-top">
-      <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">
+      <ks-swiper-container loop="false" slides-per-view="1" space-between="5" swiper="swiper" show-nav-buttons="false"  space-between="5" pagination-clickable="false" on-ready="onReadySwiper(swiper)">
         <ks-swiper-slide ng-repeat="idea in ideas.ideas">
           <div class="textslide padding-bottom" on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
 
