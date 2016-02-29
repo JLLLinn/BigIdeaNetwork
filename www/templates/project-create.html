@@ -1,10 +1,11 @@
 <ion-view view-title="Create A Project">
   <ion-content>
+  <div style="padding-left:10px;">
     <div class="text-center padding-top">
 
 
       <div ng-hide="default_project.projectnameEnabled" ng-click="default_project.projectnameEnabled=!default_project.projectnameEnabled">
-        <h3>{{default_project.projectname}}</h3>
+        <h3 class="thinner-font">{{default_project.projectname}}</h3>
       </div>
       <span ng-show="default_project.projectnameEnabled">
 	      <input ng-model="default_project.projectname" style="text-align:center;"><br>
@@ -12,36 +13,32 @@
 	    </span>
 
 
-      <hr style="width:50%">
-
-
     </div>
+    <div class="row">
+    <div class="col">
     <h4>Leader</h4>
-    <img src="img/adam.jpg" height="60" width="60">
+    <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
     <br>
     <h4>Participants</h4>
-    <a class="button button-outline" style="text-align: left;">Add Participant</a>
-    <hr style="margin-bottom:0;">
-    <h4>Description</h4>
-    <textarea rows="4" cols="25" style="border:solid 1px grey;">
-      Click to Enter Description. (Under 140 characters)
-    </textarea>
-    <hr style="margin-bottom:0;">
+    <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px;"></a>
+    </div>
+        <div class="col">
+          <textarea rows="8" cols="20" style="border:dashed 1px grey; padding:5px; margin:5px;">Click to Enter Description. (Under 140 characters)</textarea>
+        </div>
+      </div>
     <h4>Tasks</h4>
-    <textarea rows="3" cols="25" style="border:solid 1px grey;">
-      Task Name Enter Some Initial Tasks Here
-    </textarea>
-    <hr style="margin-bottom:0;">
+    <textarea rows="4" cols="25" style="border:dashed 1px grey;">Task Name Enter Some Initial Tasks Here</textarea>
     <h4>Places</h4>
-    <a class="button button-outline" style="text-align: left;">Add Tags</a>
+    <a class="button button-clear" style="text-align: left;">Add Tags</a>
     <br>
     <div class="text-center">
-      <a class="button button-outline button-assertive" style="text-align: left;" href="#tab/account/edit">
+      <a class="button button-clear button-assertive" style="text-align: left;" href="#tab/account/edit">
 			  Done
 		</a>
     </div>
     <a class="button button-block" href="#tab/ideas">
                   Back to Idea Cloud
                 </a>
+    </div>
   </ion-content>
 </ion-view>
