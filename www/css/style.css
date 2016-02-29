@@ -59,7 +59,7 @@ textarea {
   border-radius: 50%;
   border-style: none;
   overflow: hidden;
-  background: #4679BD;
+  background: #387EF5;
   box-shadow: 0 0 3px gray;
 }
 .round-button-circle:hover {
@@ -74,7 +74,7 @@ textarea {
   line-height: 1em;
   margin-top: -0.5em;
   text-align: center;
-  color: #e2eaf3;
+  color: #fff;
   font-family: Verdana;
   font-size: 1.2em;
   font-weight: bold;
