@@ -37,7 +37,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
   $scope.project_showing_idx = new Array($scope.ideas.ideas.length).fill(0);
   $scope.swiper = {
     autoHeight: "true",
-    slidesPerView:"2"
+
   };
 
   $scope.onReadySwiper = function(swiper) {
@@ -94,7 +94,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
             e.preventDefault();
           } else {
             //$location.path("/tab/account/project-edit");
-            $state.go('tab.project-create');
+            $state.go('tab.project-create', {'idea_name': $scope.data.wifi});
             return $scope.data.wifi;
           }
         }
@@ -145,7 +145,8 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
   .controller('RandomProjectCtrl', function($scope, RandomProjects) {
     $scope.project_list = RandomProjects.all();
   })
-  .controller('ProjectCreateCtrl', function($scope, CreateProjects) {
+  .controller('ProjectCreateCtrl', function($scope, $stateParams, CreateProjects) {
+    $scope.idea_name = $stateParams.idea_name;
     $scope.default_project = CreateProjects.all();
   })
   .controller('AccountEditCtrl', function($scope, Account) {
