@@ -80,7 +80,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
       template: '<textarea type="text" style="border:1px dashed #999999; height:20vh" ng-model="data.wifi"></textarea>',
       title: $scope.ideas.category,
       cssClass: 'new-idea-popup',
-      subTitle: 'Enter Your Idea',
+      subTitle: "What's your big idea?",
       scope: $scope,
       buttons: [{
         text: 'Cancel',

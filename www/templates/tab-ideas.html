@@ -1,5 +1,11 @@
 <ion-view view-title="Ideas">
   <ion-content class="padding">
+    <style>
+    #cloud-dynamic {
+      width: 100%;
+      height: 300px;
+    }
+    </style>
     <div class="item-input-inset" style="padding: 0;">
       <label class="item-input-wrapper">
         <i class="icon ion-ios-search placeholder-icon"></i>
@@ -10,7 +16,7 @@
       </button>
     </div>
     <div class="text-center" ng-if="!searching" >
-      <jqcloud words="words" id="cloud-dynamic" auto-resize="true" colors="{{colors}}" steps="7" font-size="{from:0.09, to:0.05}"></jqcloud>
+      <jqcloud words="words" steps="10" shape="elliptic" delay="10" id="cloud-dynamic" auto-resize="true" font-size="{from:0.09, to:0.03}"></jqcloud>
 
       <br>
       <div class="">

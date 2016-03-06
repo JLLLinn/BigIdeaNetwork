@@ -45,7 +45,7 @@
     center: { x: 0.5, y: 0.5 },
     steps: 10,
     delay: null,
-    shape: 'elliptic',
+    shape: 'rectangular',
     classPattern: 'w{n}',
     encodeURI: true,
     removeOverflowing: true,
@@ -216,7 +216,7 @@
     // Initialize the drawing of the whole cloud
     drawWordCloud: function() {
       var i, l;
-      
+
       this.$element.children('[id^="' + this.data.namespace + '"]').remove();
 
       if (this.word_array.length === 0) {

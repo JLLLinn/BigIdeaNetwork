@@ -11,10 +11,23 @@
       </button>
     </div>
     <style>
+      .textslide.leftright-border {
+        border-style: double;
+        border-width: 6px;
+        border-spacing: 20px;
+        border-color: rgba(220, 220, 220, 0) rgba(0, 0, 0, 0.36);
+      }
+
+      .textslide.updown-border {
+        border-style: double;
+        border-width: 6px;
+        border-spacing: 20px;
+        border-color: rgba(0, 0, 0, 0.36) rgba(220, 220, 220, 0);
+      }
+
       div.textslide {
         height: 35vh;
-        border-style: none;
-        background-color: #dcdcdc;
+        background-color: rgba(220, 220, 220, 0.42);
         padding: 10%;
       }
 
@@ -56,7 +69,7 @@
 
       .swiper-slide .img-rounded {
         max-height: 40px;
-        padding-left: 5px;
+        margin: 0px 2px;
       }
 
       .textslide p {
@@ -67,8 +80,16 @@
       .card-project-name {
         text-decoration: none;
         font-weight: 300;
-        color: #387ef5;
-        font-style: italic;
+        color: #000000;
+        /*font-style: italic;*/
+      }
+
+      .foot-note {
+        position: absolute;
+        top: 30vh;
+        right: 18px;
+        color: rgba(0, 0, 0, 0.50);
+        font-weight: 200;
       }
     </style>
     <div class="text-center idea-album-title">
@@ -78,9 +99,10 @@
       </h2>
     </div>
     <div id="slider" class="myslides padding-top">
-      <ks-swiper-container loop="false" slides-per-view="1" space-between="5" swiper="swiper" show-nav-buttons="false"  space-between="5" pagination-clickable="false" on-ready="onReadySwiper(swiper)">
+      <ks-swiper-container loop="false" slides-per-view="1" space-between="5" swiper="swiper" show-nav-buttons="false" space-between="5" pagination-clickable="false" on-ready="onReadySwiper(swiper)">
         <ks-swiper-slide ng-repeat="idea in ideas.ideas">
-          <div class="textslide padding-bottom" on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
+          <div class="textslide  padding-bottom" ng-class="{'leftright-border': showing_ideas[$index], 'updown-border': !showing_ideas[$index]}"
+           on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
 
             <p ng-show="showing_ideas[$index]" class="vertical-center">
               {{idea.name}}
@@ -90,6 +112,9 @@
                       {{idea.projects[project_showing_idx[$index]].name}}
               </a>
               <br>
+            </div>
+            <div ng-hide="showing_ideas[$index]" class="foot-note">
+              {{project_showing_idx[$index] + 1}}/{{idea.projects.length}}
             </div>
           </div>
           <div ng-if="!showing_ideas[$index]" class="padding-top">

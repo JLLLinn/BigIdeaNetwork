@@ -69,18 +69,36 @@ angular.module('starter.services', [])
   var ideas = [{
     id: 0,
     category: 'Poverty Alleviation',
-    ideas:[{
-      name:"Eradicate poverty among the elderly in Illinois",
-      projects:[{
-        name:"Poverty Action Hackathon"
-      }]
-    },{
-      name:"Connect low-income Americans to government services",
-      projects:[{
-        name:"Build the “Connector App” for accessing social services"
-      }]
-    }]
+    ideas:[]
+  },{
+    id: 0,
+    category: 'Arts & Humanities',
+    ideas:[]
+  },{
+    id: 0,
+    category: 'Beauty',
+    ideas:[]
+  },{
+    id: 0,
+    category: 'Business & Finance',
+    ideas:[]
+  },{
+    id: 0,
+    category: 'Politics & Government',
+    ideas:[]
   }, {
+    id: 0,
+    category: 'Education & Reference',
+    ideas:[]
+  },{
+    id: 0,
+    category: 'Travel',
+    ideas:[]
+  },{
+    id: 0,
+    category: 'Environment Protection',
+    ideas:[]
+  },{
     id: 1,
     category: 'Healthcare Reform',
     ideas:[{
@@ -350,7 +368,7 @@ angular.module('starter.services', [])
       projectnameEnabled: false,
       progress_list:[{
         name:"Brainstorm Ideas",
-        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        detail:"Think about WHAT?",
         projectEnabled:"False",
         slide: false,
         display:false
@@ -388,11 +406,11 @@ angular.module('starter.services', [])
 })
 .factory('RandomProjects', function() {
     var projects = [{
-      projectname: "Help Blind Photographers",
+      projectname: "Implement Pay Transparency",
       projectnameEnabled: false,
       progress_list:[{
         name:"Brainstorm Ideas",
-        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        detail:"What are different types of pay transpancy? Why is it not so good right now?",
         projectEnabled:"False",
         slide: false,
         display:false
@@ -416,11 +434,11 @@ angular.module('starter.services', [])
 })
 .factory('CreateProjects', function() {
     var project = {
-      projectname: "Help Blind Photographers",
+      projectname: "",
       projectnameEnabled: false,
       progress_list:[{
         name:"Brainstorm Ideas",
-        detail:"Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        detail:"Think about WHAT?",
         projectEnabled:"False",
         slide: false,
         display:false
