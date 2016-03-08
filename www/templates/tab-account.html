@@ -1,59 +1,84 @@
 <ion-view view-title="Account">
   <style>
     .list {
-      margin: 10px 10px;
+      /*margin: 10px 10px;*/
     }
 
     .project-btn-list-item {
       text-decoration: none;
       display: block;
-      font-size: 1.12em;
-      padding-bottom: 5px;
+      font-size: 1.2em;
+      padding-bottom: 8px;
+      padding-top: 8px;
+      font-weight: 200;
     }
 
     .project-btn-list-item .icon-accessory {
       color: #ccc;
       font-size: 16px;
     }
+
+    .account-list-title-span {
+      font-size: 0.8em;
+      padding-left: 8px;
+      padding-top: 10px;
+      color: #8E8E93;
+      text-transform: uppercase;
+    }
+
+    .list-items-wrapper {
+      background-color: #FFFFFF;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    .border-seperate {
+      border-bottom: 1px solid rgba(128,128,128,0.3);
+    }
+
+    .tag {
+      font-weight: 200;
+
+    }
   </style>
-  <ion-content>
+  <ion-content style="background-color: #EAEAEA; color:#4A4A4A">
     <!--<ion-list>
       <ion-toggle  ng-model="settings.enableFriends">
           Enable Friends
       </ion-toggle>
       </ion-list>-->
     <div class="text-center padding-top">
-      <h1 class="thin-font">{{accountInfo.username}}</h1>
+      <h1 class="thin-font" style="color:#4A4A4A">{{accountInfo.username}}</h1>
       <span>{{accountInfo.occupation}}</span>
       <br>
       <span>{{accountInfo.origination}}</span>
 
     </div>
-    <div class="list list-inset">
-      <span>Big Idea</span>
-      <h4 class="thinner-font padding-left">{{accountInfo.idea}}</h4>
-      <span>Leading Projects</span>
-      <div class="padding">
-        <a class="project-btn-list-item" style="text-align: left;" href="#tab/account/my-project" ng-repeat="idea_project in accountInfo.idea_project_list ">
+    <div class="list" style="    background-color: #EAEAEA;">
+      <div class="account-list-title-span">BIG IDEA</div>
+      <h4 class="thinner-font padding-left" style="margin-top: 0px;margin-bottom: 0px;color:#4A4A4A">{{accountInfo.idea}}</h4>
+      <div class="account-list-title-span">LEADING PROJECTS</div>
+      <div class="padding-horizontal list-items-wrapper">
+        <a class="project-btn-list-item" ng-class="{'border-seperate':!$last}" style="text-align: left;" href="#tab/account/my-project" ng-repeat="idea_project in accountInfo.idea_project_list ">
         {{idea_project.name}}<i class="pull-right icon ion-chevron-right icon-accessory"></i>
         </a>
       </div>
-      <span>Participating Projects</span>
-      <div class="padding">
-        <a class="project-btn-list-item " style="text-align: left;" href="#tab/account/partic-project" ng-repeat="participating_project in accountInfo.participating_project_list ">
+      <div class="account-list-title-span">PARTICIPTING PROJECTS</div>
+      <div class="padding-horizontal list-items-wrapper">
+        <a class="project-btn-list-item " ng-class="{'border-seperate':!$last}" style="text-align: left;" href="#tab/account/partic-project" ng-repeat="participating_project in accountInfo.participating_project_list ">
         {{participating_project.name}} <i class="pull-right icon ion-chevron-right icon-accessory"></i>
         </a>
 
       </div>
-      <span>Education</span>
-      <div class="padding">
-        <a style="text-align: left;" href="javascript:void(0)" class="padding-right" ng-repeat="education in accountInfo.educations">
+      <div class="account-list-title-span">EDUCATION</div>
+      <div class="padding-horizontal list-items-wrapper">
+        <a style="text-align: left;" href="javascript:void(0)" class="padding-right tag" ng-repeat="education in accountInfo.educations">
         &middot;{{education}}
       </a>
       </div>
-      <span>Skills, Endorsements</span>
-      <div class="padding">
-        <a style="text-align: left;" href="javascript:void(0)" class="padding-right" ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
+      <div class="account-list-title-span">SKILLS, ENDORSEMENTS</div>
+      <div class="padding-horizontal list-items-wrapper">
+        <a style="text-align: left;" href="javascript:void(0)" class="padding-right tag" ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
         &middot;{{skills_endorsement.skill}}-{{skills_endorsement.endorsements}}
       </a>
       </div>

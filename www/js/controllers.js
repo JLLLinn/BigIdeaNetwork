@@ -94,7 +94,9 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
             e.preventDefault();
           } else {
             //$location.path("/tab/account/project-edit");
-            $state.go('tab.project-create', {'idea_name': $scope.data.wifi});
+            $state.go('tab.project-create', {
+              'idea_name': $scope.data.wifi
+            });
             return $scope.data.wifi;
           }
         }
@@ -140,7 +142,7 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 
   })
   .controller('particctrl', function($scope, ParticProjects) {
-    $scope.project_list = ParticProjects.all();
+    $scope.project = ParticProjects.all();
   })
   .controller('RandomProjectCtrl', function($scope, RandomProjects) {
     $scope.project_list = RandomProjects.all();

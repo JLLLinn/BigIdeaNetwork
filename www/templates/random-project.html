@@ -1,5 +1,6 @@
 <ion-view view-title="Project">
   <ion-content>
+    <link href="css/project_style.css" rel="stylesheet">
     <div style="padding:5px">
       <div ng-repeat="project in project_list">
         <div class="text-center padding-top ">
@@ -12,30 +13,28 @@
 
 
         </div>
-        <div class="row">
-          <div class="col">
-            <span>Leader</span>
-            <br>
+        <div class="row" style="padding-left:8px">
+          <div class="col" style="padding:0px">
+            <div class="list-title-span" style="padding:0px">Leader</div>
             <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
             <br>
-            <span>Participants</span>
-            <br>
+            <div class="list-title-span">Participants</div>
             <img class="img-rounded" src="img/ben.png" height="45" width="45">
             <img class="img-rounded" src="img/max.png" height="45" width="45">
             <br>
           </div>
-          <div class="col">
+          <div class="col" style="padding:0px">
             <span class="thinner-font" style="font-style:italic">Some description of this project, this is a very veryveryvery long description</span>
           </div>
         </div>
         <div style="padding-left:8px">
-          <span>Tasks</span>
+          <div class="list-title-span">Tasks</div>
         </div>
         <style>
           .animate-show {
             line-height: 20px;
             opacity: 1;
-            padding: 10px;
+            padding: 0 10px;
             background: white;
           }
 
@@ -52,22 +51,22 @@
           }
         </style>
         <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list">
-          <h4 ng-click="project.slide=!project.slide" style="display: inline-block;   padding-top:0; margin-left: 5px; margin-bottom:0px">{{progress.name}}
+          <h4 ng-click="project.slide=!project.slide" style="display: inline-block;   padding-top:0; margin-left: 8px; margin-top:0px;margin-bottom:0px">
+            {{progress.name}}
     </h4>
           <div class="animate-show" ng-show="project.slide">{{progress.detail}}</div>
         </div>
         <div>
           <div style="padding-left:8px; padding-top:10px">
-            <span>Places</span>
-            <br>
-          </div>
-          <button class="button button-small button-clear button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button>
-          <div class="text-center">
-            <a class="button button-clear button-assertive" style="text-align: left;">
+            <spadiv class="list-title-span">Places</div>
+        </div>
+        <button class="button button-small button-clear button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px; color:black">{{place.name}}</button>
+        <div class="text-center">
+          <a class="button button-clear button-assertive" style="text-align: left;">
         Request to Join
     </a>
-          </div>
         </div>
       </div>
+    </div>
   </ion-content>
 </ion-view>

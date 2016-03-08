@@ -19,7 +19,7 @@ div.idea-album-title {
   transform: translateY(-50%);
 }
 textarea {
-  /*-webkit-appearance: caret;*/
+  -webkit-appearance: none;
   -moz-appearance: caret;
   -o-appearance: caret;
   appearance: caret;
@@ -50,11 +50,11 @@ textarea {
   border-radius: 50%;
   border-style: none;
   overflow: hidden;
-  background: #387EF5;
+  background: #C7C7CC;
   box-shadow: 0 0 3px gray;
 }
 .round-button-circle:hover {
-  background: #30588e;
+  background: #8E8E93;
 }
 .round-button a {
   display: block;
@@ -73,6 +73,7 @@ textarea {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 .pull-right {
   float: right;

@@ -1,73 +1,80 @@
 <ion-view view-title="Participating Project">
   <ion-content>
-  <div style="padding-left:8px;">
-    <div ng-repeat="project in project_list">
-      <div class="text-center padding-top ">
+  <style>
+    .animate-show {
+      line-height: 20px;
+      opacity: 1;
+      padding-left: 25px;
+      background: white;
+    }
 
+    .animate-show.ng-hide-add.ng-hide-add-active,
+    .animate-show.ng-hide-remove.ng-hide-remove-active {
+      -webkit-transition: all linear 0.5s;
+      transition: all linear 0.5s;
+    }
 
-        <div ng-hide="project.projectnameEnabled">
-          <h3 class="thinner-font">{{project.projectname}}</h3>
-        </div>
-
-
-
-
+    .animate-show.ng-hide {
+      line-height: 0;
+      opacity: 0;
+      padding-left:25px;
+    }
+  </style>
+    <link href="css/project_style.css" rel="stylesheet">
+    <div class="text-center padding-top">
+      <div ng-hide="project.projectnameEnabled" ng-click="project.projectnameEnabled=!project.projectnameEnabled">
+        <h3 class="thinner-font">{{project.projectname}}</h3>
       </div>
+      <span ng-show="project.projectnameEnabled">
+                <input ng-model="project.projectname" style="text-align:center;"><br>
+                <a href="#" ng-click="project.projectnameEnabled=!project.projectnameEnabled">Save</a>
+                </span>
+    </div>
+    <div class="list list-inset" style="margin-top : 0px">
       <div class="row" style="padding:0px">
-      <div class="col" style="padding:0px">
-      <span>Leader</span>
-      <br>
-      <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
-      <br>
-      <span>Participants</span>
-      <br>
-      <img class="img-rounded" src="img/ben.png" height="45" width="45">
-      <img class="img-rounded" src="img/max.png" height="45" width="45">
-      </div>
+        <div class="col" style="padding:0px">
+          <div class="list-title-span">Leader</div>
+          <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
+          <div class="list-title-span">Participants</div>
+          <img class="img-rounded" src="img/ben.png" height="45" width="45">
+
+          <div class="round-button" style="display:inline-block">
+            <div class="round-button-circle"><a class="round-button">12</a></div>
+          </div>
+
+
+          <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px;"></a>
+        </div>
         <div class="col">
           <span class="thinner-font" style="font-style:italic">Some description of this project, this is a very veryveryvery long description</span>
         </div>
       </div>
-      <div style="padding-left:5px;">
-      <span>Tasks</span></div>
-      <style>
-        .animate-show {
-          line-height: 20px;
-          opacity: 1;
-          padding: 10px;
-          background: white;
-        }
+      <div class="list-title-span">Tasks</div>
 
-        .animate-show.ng-hide-add.ng-hide-add-active,
-        .animate-show.ng-hide-remove.ng-hide-remove-active {
-          -webkit-transition: all linear 0.5s;
-          transition: all linear 0.5s;
-        }
+      <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list">
 
-        .animate-show.ng-hide {
-          line-height: 0;
-          opacity: 0;
-          padding: 0 10px;
-        }
-      </style>
-      <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list" style="margin: 5px;border:none;">
-        <h4 ng-click="progress.slide=!progress.slide" class="thinner-font">{{progress.name}}
-    <button class="button button-small button-clear button-positive" style="text-align: left; margin: 3px;">Request Done</button>
-    <i class="icon ion-ios-circle-filled" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
-    <div class="col text-left" ng-hide="progress.display">Display<i class="icon ion-checkmark-circled"></i></div>
-    </h4>
-        <div class="animate-show" ng-show="progress.slide">{{progress.detail}}
-          <button class="button button-small button-outline button-positive" style="text-align: left; margin: 3px;">Join</button>
-        </div>
+        <i class="icon ion-ios-circle-outline" style="font-size: 18px;" ng-show="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
+        <i class="icon ion-ios-checkmark-outline" style="font-size: 18px;" ng-hide="progress.projectEnabled" ng-click="progress.projectEnabled=!progress.projectEnabled"></i>
+        <h4 ng-click="progress.slide=!progress.slide" style="display: inline-block;    margin-left: 5px; margin-bottom:0px">
+                    {{progress.name}}
+                </h4>
+
+        <span class="" ng-hide="progress.display">
+                    <i class="icon ion-eye" style="font-size: 18px;    color: rgba(0,0,0,0.3);"></i>
+                </span>
+        <div class="animate-show" ng-show="progress.slide">{{progress.detail}}</div>
       </div>
-      <br>
-      <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
       <div>
-        <span>Places</span>
-        <br>
-        <button class="button button-small button-clear button-positive" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button>
-        <a class="button button-small button-icon icon ion-plus-round" style="padding: 2px 4px 1px;"></a>
+        <h4 style="display: inline-block; margin-left: 25px; color: rgba(0, 0, 0, 0.30);">
+                    Add Task
+                </h4>
       </div>
-      </div>
+
+
+
+      <div class="list-title-span">Places</div>
+      <button class="button button-small button-clear button-positive" style="color:black;" ng-repeat="place in project.place_list" style="text-align: left; margin: 3px;">{{place.name}}</button>
+
+    </div>
   </ion-content>
 </ion-view>
