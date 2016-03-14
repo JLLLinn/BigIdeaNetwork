@@ -24,17 +24,17 @@ angular.module('starter.services', [])
     }, {
       project: "Corn4Champaign",
       taskChats: [{
-        id: 0,
+        id: 3,
         name: 'Get Corn',
         lastText: 'You on your way?',
         face: 'img/adam.jpg'
       }, {
-        id: 1,
+        id: 4,
         name: 'Go To Chamapign',
         lastText: 'You on your way?',
         face: 'img/perry.png'
       }, {
-        id: 2,
+        id: 5,
         name: 'Something Else',
         lastText: 'You on your way?',
         face: 'img/adam.jpg'
@@ -51,14 +51,16 @@ angular.module('starter.services', [])
         project_chat = chats[chats.indexOf(project_chat)];
         project_chat.taskChats.splice(project_chat.taskChats.indexOf(chat), 1);
       },
-      // get: function(chatId) {
-      //   for (var i = 0; i < chats.length; i++) {
-      //     if (chats[i].id === parseInt(chatId)) {
-      //       return chats[i];
-      //     }
-      //   }
-      //   return null;
-      // }
+       get: function(chatId) {
+         for (var i = 0; i < chats.length; i++) {
+          for (var j=0; j<chats[i].taskChats.length; j++){
+           if (chats[i].taskChats[j].id === parseInt(chatId)) {
+             return chats[i].taskChats[j];
+           }
+          }
+         }
+         return null;
+       }
     };
   })
   .factory('Ideas', function() {
