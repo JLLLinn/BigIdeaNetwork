@@ -4,39 +4,45 @@ angular.module('starter.services', [])
     // Might use a resource here that returns a JSON array
 
     var chats = [{
-      project: "Chile Hope Project",
+      project: "Wage Shareholder Proxy Fights",
       taskChats: [{
         id: 0,
-        name: 'Brainstrom Ideas',
-        lastText: 'I should buy a boat',
+        name: 'Research past successful and failed shareholder resolutions on pay equity and produce research report',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'How is the research going so far?',
         face: 'img/ben.png'
       }, {
         id: 1,
-        name: 'Design Mock 4 app',
-        lastText: 'Look at my mukluks!',
+        name: 'Initiate letter-writing campaign to state treasurers in all 50 states to advocate for shareholder resolutions concerning pay equity',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'We should discuss this with the professor',
         face: 'img/max.png'
       }, {
         id: 2,
-        name: 'Conduct Interview',
-        lastText: 'This is wicked good ice cream.',
+        name: 'Circulate petition on pay equity to Fortune 500 companies',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'Ok so I will meet you at 3pm',
         face: 'img/adam.jpg'
       }]
     }, {
-      project: "Corn4Champaign",
+      project: "Advocate Pay Transparency",
       taskChats: [{
         id: 3,
-        name: 'Get Corn',
+        name: 'Collect data from companies that already publish this data',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
         lastText: 'You on your way?',
         face: 'img/adam.jpg'
       }, {
         id: 4,
-        name: 'Go To Chamapign',
-        lastText: 'You on your way?',
+        name: 'Generate mail merge document for all corporate diversity officers in the Fortune 500',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'Did you find the website useful?',
         face: 'img/perry.png'
       }, {
         id: 5,
-        name: 'Something Else',
-        lastText: 'You on your way?',
+        name: 'Formulate media campaign to publicize this project',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'Did you contact the media company?',
         face: 'img/adam.jpg'
       }]
     }]
