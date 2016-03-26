@@ -4,30 +4,46 @@ angular.module('starter.services', [])
     // Might use a resource here that returns a JSON array
 
     var chats = [{
-      project: "Wage shareholder proxy fights",
+      project: "Wage Shareholder Proxy Fights",
       taskChats: [{
         id: 0,
-        name: 'Research Past Resolutions',
-        lastText: ' Research past successful and failed shareholder resolutions',
+        name: 'Research past successful and failed shareholder resolutions on pay equity and produce research report',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'How is the research going so far?',
         face: 'img/ben.png'
       }, {
         id: 1,
-        name: 'Circulate Petition',
-        lastText: 'On pay equity to Fortune 500 companies',
+        name: 'Initiate letter-writing campaign to state treasurers in all 50 states to advocate for shareholder resolutions concerning pay equity',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'We should discuss this with the professor',
         face: 'img/max.png'
+      }, {
+        id: 2,
+        name: 'Circulate petition on pay equity to Fortune 500 companies',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'Ok so I will meet you at 3pm',
+        face: 'img/adam.jpg'
       }]
     }, {
-      project: "Advocate pay transparency",
+      project: "Advocate Pay Transparency",
       taskChats: [{
         id: 3,
-        name: ' Collect Data ',
-        lastText: 'All companies that already publish this data.',
+        name: 'Collect data from companies that already publish this data',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'You on your way?',
         face: 'img/adam.jpg'
       }, {
         id: 4,
-        name: 'Generate Mail Merge Document ',
-        lastText: 'It should be for all corporate diversity officers in the Fortune 500',
+        name: 'Generate mail merge document for all corporate diversity officers in the Fortune 500',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'Did you find the website useful?',
         face: 'img/perry.png'
+      }, {
+        id: 5,
+        name: 'Formulate media campaign to publicize this project',
+        message: ['Is it ready yet?','I just got the data we want','That is really good news.','We can now start to implement.','yes definitely'],
+        lastText: 'Did you contact the media company?',
+        face: 'img/adam.jpg'
       }]
     }]
 
