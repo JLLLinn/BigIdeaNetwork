@@ -42,9 +42,10 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 
   $scope.onReadySwiper = function(swiper) {
 
-    swiper.on('slideChangeStart', function() {
+    swiper.on('slideChangeEnd', function() {
+      $scope.showing_ideas.fill(true);
+      $scope.$apply();
 
-      console.log('slideChangeStart');
     });
   };
 
@@ -141,11 +142,11 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
     };
 
   })
-  .controller('particctrl', function($scope, ParticProjects) {
-    $scope.project = ParticProjects.all();
+  .controller('particctrl', function($scope, $stateParams,ParticProjects) {
+    $scope.project = ParticProjects.get($stateParams.id);
   })
-  .controller('RandomProjectCtrl', function($scope, RandomProjects) {
-    $scope.project_list = RandomProjects.all();
+  .controller('RandomProjectCtrl', function($scope, $stateParams, RandomProjects) {
+    $scope.project = RandomProjects.get($stateParams.id);
   })
   .controller('ProjectCreateCtrl', function($scope, $stateParams, CreateProjects) {
     $scope.idea_name = $stateParams.idea_name;

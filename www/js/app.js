@@ -118,7 +118,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
     }
   })
 .state('tab.partic-project', {
-    url: '/account/partic-project',
+    url: '/account/partic-project/:id',
     views: {
       'tab-account': {
         templateUrl: 'templates/partic-project.html',
@@ -127,7 +127,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
     }
   })
 .state('tab.random-project', {
-    url: '/ideas/random-project',
+    url: '/ideas/random-project/:id',
     views: {
       'tab-ideas': {
         templateUrl: 'templates/random-project.html',

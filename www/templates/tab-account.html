@@ -56,7 +56,7 @@
     </div>
     <div class="list" style="    background-color: #EAEAEA;">
       <div class="account-list-title-span">BIG IDEA</div>
-      <h4 class="thinner-font padding-left" style="margin-top: 0px;margin-bottom: 0px;color:#4A4A4A">{{accountInfo.idea}}</h4>
+      <h4 class="thinner-font padding-left padding-right" style="margin-top: 0px;margin-bottom: 0px;color:#4A4A4A">{{accountInfo.idea}}</h4>
       <div class="account-list-title-span">LEADING PROJECTS</div>
       <div class="padding-horizontal list-items-wrapper">
         <a class="project-btn-list-item" ng-class="{'border-seperate':!$last}" style="text-align: left;" href="#tab/account/my-project" ng-repeat="idea_project in accountInfo.idea_project_list ">
@@ -65,21 +65,22 @@
       </div>
       <div class="account-list-title-span">PARTICIPTING PROJECTS</div>
       <div class="padding-horizontal list-items-wrapper">
-        <a class="project-btn-list-item " ng-class="{'border-seperate':!$last}" style="text-align: left;" href="#tab/account/partic-project" ng-repeat="participating_project in accountInfo.participating_project_list ">
+        <span ng-repeat="participating_project in accountInfo.participating_project_list ">
+        <a class="project-btn-list-item " ng-class="{'border-seperate':!$last}" style="text-align: left;" ng-href="#tab/account/partic-project/{{participating_project.id}}" >
         {{participating_project.name}} <i class="pull-right icon ion-chevron-right icon-accessory"></i>
         </a>
-
+      </span>
       </div>
       <div class="account-list-title-span">EDUCATION</div>
       <div class="padding-horizontal list-items-wrapper">
         <a style="text-align: left;" href="javascript:void(0)" class="padding-right tag" ng-repeat="education in accountInfo.educations">
-        &middot;{{education}}
+        &middot; {{education}}
       </a>
       </div>
       <div class="account-list-title-span">SKILLS, ENDORSEMENTS</div>
       <div class="padding-horizontal list-items-wrapper">
         <a style="text-align: left;" href="javascript:void(0)" class="padding-right tag" ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
-        &middot;{{skills_endorsement.skill}}-{{skills_endorsement.endorsements}}
+        &middot; {{skills_endorsement.skill}}-{{skills_endorsement.endorsements}}
       </a>
       </div>
     </div>

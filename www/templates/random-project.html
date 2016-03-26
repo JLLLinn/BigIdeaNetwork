@@ -2,8 +2,7 @@
   <ion-content>
     <link href="css/project_style.css" rel="stylesheet">
     <div style="padding:5px">
-      <div ng-repeat="project in project_list">
-        <div class="text-center padding-top ">
+        <div class="text-center padding-top padding-horizontal">
 
 
           <div ng-hide="project.projectnameEnabled">
@@ -24,7 +23,7 @@
             <br>
           </div>
           <div class="col" style="padding:0px">
-            <span class="thinner-font" style="font-style:italic">Some description of this project, this is a very veryveryvery long description</span>
+            <span class="thinner-font" style="font-style:italic">{{project.projectDescription}}</span>
           </div>
         </div>
         <div style="padding-left:8px">
@@ -51,10 +50,10 @@
           }
         </style>
         <div ng-app="ngAnimate" ng-repeat="progress in project.progress_list">
-          <h4 ng-click="project.slide=!project.slide" style="display: inline-block;   padding-top:0; margin-left: 8px; margin-top:0px;margin-bottom:0px">
+          <h4 ng-click="progress.slide=!progress.slide" style="display: inline-block;   padding-top:0; margin-left: 8px; margin-top:3px;margin-bottom:3px; font-weight:200">
             {{progress.name}}
     </h4>
-          <div class="animate-show" ng-show="project.slide">{{progress.detail}}</div>
+          <div class="animate-show" ng-show="progress.slide">{{progress.detail}}</div>
         </div>
         <div>
           <div style="padding-left:8px; padding-top:10px">
@@ -66,7 +65,6 @@
         Request to Join
     </a>
         </div>
-      </div>
     </div>
   </ion-content>
 </ion-view>

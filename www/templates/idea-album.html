@@ -13,14 +13,14 @@
     <style>
       .textslide.leftright-border {
         border-style: double;
-        border-width: 6px;
+        border-width: 13px;
         border-spacing: 20px;
         border-color: rgba(220, 220, 220, 0) rgba(0, 0, 0, 0.36);
       }
 
       .textslide.updown-border {
         border-style: double;
-        border-width: 6px;
+        border-width: 13px;
         border-spacing: 20px;
         border-color: rgba(0, 0, 0, 0.36) rgba(220, 220, 220, 0);
       }
@@ -28,7 +28,7 @@
       div.textslide {
         height: 35vh;
         background-color: rgba(220, 220, 220, 0.42);
-        padding: 10%;
+        padding: 10px;
       }
 
       div.idea-album-title {
@@ -81,12 +81,13 @@
         text-decoration: none;
         font-weight: 300;
         color: #000000;
+        font-size: 15px;
         /*font-style: italic;*/
       }
 
       .foot-note {
         position: absolute;
-        top: 30vh;
+        top: 29vh;
         right: 18px;
         color: rgba(0, 0, 0, 0.50);
         font-weight: 200;
@@ -101,6 +102,7 @@
     <div id="slider" class="myslides padding-top">
       <ks-swiper-container loop="false" slides-per-view="1" space-between="5" swiper="swiper" show-nav-buttons="false" space-between="5" pagination-clickable="false" on-ready="onReadySwiper(swiper)">
         <ks-swiper-slide ng-repeat="idea in ideas.ideas">
+
           <div class="textslide  padding-bottom" ng-class="{'leftright-border': showing_ideas[$index], 'updown-border': !showing_ideas[$index]}"
            on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
 
@@ -108,7 +110,7 @@
               {{idea.name}}
             </p>
             <div ng-hide="showing_ideas[$index]" class="vertical-center ">
-              <a class="card-project-name" href="#tab/ideas/random-project">
+              <a class="card-project-name" ng-href="#tab/ideas/random-project/{{idea.projects[project_showing_idx[$index]].id}}">
                       {{idea.projects[project_showing_idx[$index]].name}}
               </a>
               <br>

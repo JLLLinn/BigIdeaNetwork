@@ -4,40 +4,30 @@ angular.module('starter.services', [])
     // Might use a resource here that returns a JSON array
 
     var chats = [{
-      project: "Chile Hope Project",
+      project: "Wage shareholder proxy fights",
       taskChats: [{
         id: 0,
-        name: 'Brainstrom Ideas',
-        lastText: 'I should buy a boat',
+        name: 'Research Past Resolutions',
+        lastText: ' Research past successful and failed shareholder resolutions',
         face: 'img/ben.png'
       }, {
         id: 1,
-        name: 'Design Mock 4 app',
-        lastText: 'Look at my mukluks!',
+        name: 'Circulate Petition',
+        lastText: 'On pay equity to Fortune 500 companies',
         face: 'img/max.png'
-      }, {
-        id: 2,
-        name: 'Conduct Interview',
-        lastText: 'This is wicked good ice cream.',
-        face: 'img/adam.jpg'
       }]
     }, {
-      project: "Corn4Champaign",
+      project: "Advocate pay transparency",
       taskChats: [{
         id: 3,
-        name: 'Get Corn',
-        lastText: 'You on your way?',
+        name: ' Collect Data ',
+        lastText: 'All companies that already publish this data.',
         face: 'img/adam.jpg'
       }, {
         id: 4,
-        name: 'Go To Chamapign',
-        lastText: 'You on your way?',
+        name: 'Generate Mail Merge Document ',
+        lastText: 'It should be for all corporate diversity officers in the Fortune 500',
         face: 'img/perry.png'
-      }, {
-        id: 5,
-        name: 'Something Else',
-        lastText: 'You on your way?',
-        face: 'img/adam.jpg'
       }]
     }]
 
@@ -158,31 +148,34 @@ angular.module('starter.services', [])
       ideas: [{
         name: "End the gender pay gap by 2020",
         projects: [{
+          id:1,
           name: "Wage shareholder proxy fights to make companies disclose pay scales by gender",
           faces: [{
             url: "img/ben.png"
           }, {
-            url: "img/ben.png"
+            url: "img/max.png"
+          }, {
+            url: "img/adam.jpg"
+          }]
+        }, {
+          name: "Advocate Pay Transparency",
+          id:2,
+          faces: [{
+            url: "img/max.png"
+          }, {
+            url: "img/adam.jpg"
           }, {
             url: "img/ben.png"
           }]
         }, {
-          name: "Implement Pay Transparency",
-          faces: [{
-            url: "img/max.png"
-          }, {
-            url: "img/max.png"
-          }, {
-            url: "img/max.png"
-          }]
-        }, {
-          name: "Eliminate Negotiation -- Forbes",
+          name: "Salary negotiation workshops",
+          id:3,
           faces: [{
             url: "img/adam.jpg"
           }, {
-            url: "img/adam.jpg"
+            url: "img/ben.png"
           }, {
-            url: "img/adam.jpg"
+            url: "img/max.png"
           }]
         }]
       }, {
@@ -312,26 +305,27 @@ angular.module('starter.services', [])
   })
   .factory('Project', function() {
     var project = {
-      projectname: "Chile HOPE Project",
+      projectname: "Wage shareholder proxy fights",
+      projectDescription:"Help advance corporate resolutions on pay equity inside leading companies",
       projectnameEnabled: false,
       progress_list: [{
-        name: "Brainstorm Ideas",
-        detail: "Think about WHATTTTTTTTTTTTTTTTTT!!!",
+        name: "Research",
+        detail: "Research past successful and failed shareholder resolutions on pay equity and produce research report",
         projectEnabled: "False",
         slide: false,
         display: false
-      }, {
-        name: "Design mocks 4 app",
-        detail: "Use mock tools to build a template application that would allow testing and demos.",
+      },{
+        name: "Initiate letter-writing campaign",
+        detail: " Initiate letter-writing campaign to state treasurers in all 50 states to advocate for shareholder resolutions concerning pay equity",
         projectEnabled: "False",
         slide: false,
-        display: true
-      }, {
-        name: "Conduct Interview",
-        detail: "Interview with several potential users in order to have a better understanding of how the product will work.",
+        display: false
+      },{
+        name: "Circulate petition",
+        detail: "  Circulate petition on pay equity to Fortune 500 companies",
         projectEnabled: "False",
         slide: false,
-        display: true
+        display: false
       }],
       place_list: [{
         name: "Champaign"
@@ -358,44 +352,92 @@ angular.module('starter.services', [])
     };
   })
   .factory('ParticProjects', function() {
-    var project = {
-      projectname: "Chile HOPE Project",
-      projectnameEnabled: false,
-      progress_list: [{
-        name: "Brainstorm Ideas",
-        detail: "Think about WHATTTTTTTTTTTTTTTTTT!!!",
-        projectEnabled: "False",
-        slide: false,
-        display: false
-      }, {
-        name: "Design mocks 4 app",
-        detail: "Use mock tools to build a template application that would allow testing and demos.",
-        projectEnabled: "False",
-        slide: false,
-        display: true
-      }, {
-        name: "Conduct Interview",
-        detail: "Interview with several potential users in order to have a better understanding of how the product will work.",
-        projectEnabled: "False",
-        slide: false,
-        display: true
-      }],
-      place_list: [{
-        name: "Champaign"
-      }, {
-        name: "Chicago"
-      }, {
-        name: "Taipei"
-      }]
-    };
+    var projects = [
+      {
+        id:2,
+        projectname: "Advocate pay transparency",
+        projectDescription:"This project will ask every publicly list U.S. company to release their average salary by gender",
+        projectnameEnabled: false,
+        progress_list: [{
+          name: "Collect data",
+          detail: " Collect data from companies that already publish this data",
+          projectEnabled: "False",
+          slide: false,
+          display: false
+        },{
+          name: "Generate document ",
+          detail: " Generate mail merge document for all corporate diversity officers in the Fortune 500",
+          projectEnabled: "False",
+          slide: false,
+          display: false
+        },{
+          name: "Formulate media campaign",
+          detail: "Formulate media campaign to publicize this project",
+          projectEnabled: "False",
+          slide: false,
+          display: false
+        }],
+        place_list: [{
+          name: "Champaign"
+        }, {
+          name: "Chicago"
+        }, {
+          name: "Taipei"
+        }]
+      },{
+        id:3,
+        projectname: "Salary negotiation workshops",
+        projectDescription:"Research shows that women often receive lower salaries due to differences in negotiating styles. We are organizing workshops at leading U.S. business schools to help teach women and men best practices for negotiating salaries",
+        projectnameEnabled: false,
+        progress_list: [{
+          name: "Create curriculum",
+          detail: "Create curriculum based on publicly available resources",
+          projectEnabled: "False",
+          slide: false,
+          display: false
+        },{
+          name: "Record webinar",
+          detail: "Record webinar to be used to deliver content",
+          projectEnabled: "False",
+          slide: false,
+          display: false
+        },{
+          name: "Develop follow up survey",
+          detail: "Develop follow up survey for workshop participants",
+          projectEnabled: "False",
+          slide: false,
+          display: false
+        }],
+        place_list: [{
+          name: "Champaign"
+        }, {
+          name: "Chicago"
+        }, {
+          name: "Taipei"
+        }]
+      }
+    ];
     return {
       all: function() {
-        return project;
-      }
+        return projects;
+      },
+      get: function(projectid) {
+        console.log(projectid);
+        if(typeof(projectid) == "undefined" || projectid == ""){
+          projectid = 0;
+        }
+        for (var i = 0; i < projects.length; i++) {
+          if (projects[i].id === parseInt(projectid)) {
+            return projects[i];
+          }
+        }
+        return null;
+      },
     };
   })
   .factory('RandomProjects', function() {
     var projects = [{
+      id:0,
       projectname: "Implement Pay Transparency",
       projectnameEnabled: false,
       progress_list: [{
@@ -412,11 +454,117 @@ angular.module('starter.services', [])
       }, {
         name: "Taipei"
       }]
-    }];
+    },{
+      id:1,
+      projectname: "Wage shareholder proxy fights",
+      projectDescription:"Help advance corporate resolutions on pay equity inside leading companies",
+      projectnameEnabled: false,
+      progress_list: [{
+        name: "Research",
+        detail: "Research past successful and failed shareholder resolutions on pay equity and produce research report",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      },{
+        name: "Initiate letter-writing campaign",
+        detail: " Initiate letter-writing campaign to state treasurers in all 50 states to advocate for shareholder resolutions concerning pay equity",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      },{
+        name: "Circulate petition",
+        detail: "  Circulate petition on pay equity to Fortune 500 companies",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      }],
+      place_list: [{
+        name: "Champaign"
+      }, {
+        name: "Chicago"
+      }, {
+        name: "Taipei"
+      }]
+    },{
+      id:2,
+      projectname: "Advocate pay transparency",
+      projectDescription:"This project will ask every publicly list U.S. company to release their average salary by gender",
+      projectnameEnabled: false,
+      progress_list: [{
+        name: "Collect data",
+        detail: " Collect data from companies that already publish this data",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      },{
+        name: "Generate document ",
+        detail: " Generate mail merge document for all corporate diversity officers in the Fortune 500",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      },{
+        name: "Formulate media campaign",
+        detail: "Formulate media campaign to publicize this project",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      }],
+      place_list: [{
+        name: "Champaign"
+      }, {
+        name: "Chicago"
+      }, {
+        name: "Taipei"
+      }]
+    },{
+      id:3,
+      projectname: "Salary negotiation workshops",
+      projectDescription:"Research shows that women often receive lower salaries due to differences in negotiating styles. We are organizing workshops at leading U.S. business schools to help teach women and men best practices for negotiating salaries",
+      projectnameEnabled: false,
+      progress_list: [{
+        name: "Create curriculum",
+        detail: "Create curriculum based on publicly available resources",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      },{
+        name: "Record webinar",
+        detail: "Record webinar to be used to deliver content",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      },{
+        name: "Develop follow up survey",
+        detail: "Develop follow up survey for workshop participants",
+        projectEnabled: "False",
+        slide: false,
+        display: false
+      }],
+      place_list: [{
+        name: "Champaign"
+      }, {
+        name: "Chicago"
+      }, {
+        name: "Taipei"
+      }]
+    }
+  ];
     return {
       all: function() {
         return projects;
-      }
+      },
+      get: function(projectid) {
+        console.log(projectid);
+        if(typeof(projectid) == "undefined" || projectid == ""){
+          projectid = 0;
+        }
+        for (var i = 0; i < projects.length; i++) {
+          if (projects[i].id === parseInt(projectid)) {
+            return projects[i];
+          }
+        }
+        return null;
+      },
     };
   })
   .factory('CreateProjects', function() {

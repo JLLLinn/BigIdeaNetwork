@@ -13,28 +13,27 @@ angular.module('starter.accountService', [])
     idea:"Mitigate Indigenours Conflicts Through Education in Chile",
     idea_project_list:[
       {
-        name:"Chile HOPE Project"
-      },
-      {
-        name:"Another Chile Education Project"
+        name:"Wage shareholder proxy fights"
       }
     ],
     participating_project_list:[
       {
-        name:"Help Blind Photographers"
+        id:2,
+        name:"Advocate pay transparency"
       },
       {
-        name:"Corn4CHAMPAIGN"
+        id:3,
+        name:"Salary negotiation workshops"
       }
     ],
     educations:["UIUC", "Huazhong University", "CU Boulder"],
     skills_endorsements:[
     {
-      skill:"Comp.Sci.",
+      skill:"Computer Science",
       endorsements:3
-    }, 
+    },
     {
-      skill:"Proj. Management",
+      skill:"Project Management",
       endorsements:18
     }],
   };
