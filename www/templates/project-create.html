@@ -1,49 +1,46 @@
 <ion-view view-title="Create A Project">
   <ion-content>
     <link href="css/project_style.css" rel="stylesheet">
-  <div class="padding-horizontal" >
-    <div class="text-center padding-top">
+    <div class="padding-horizontal">
+      <div class="text-center padding-top">
 
-      <h1 class="thinnest-font">{{idea_name}}</h1>
-      <div ng-hide="default_project.projectnameEnabled" ng-click="default_project.projectnameEnabled=!default_project.projectnameEnabled">
-        <h3 class="thinner-font">{{default_project.projectname}}</h3>
+        <h1 class="thinnest-font">{{idea_name}}</h1>
+        </span>
+
+
       </div>
-      <span ng-show="default_project.projectnameEnabled">
-	      <input ng-model="default_project.projectname" style="text-align:center;"><br>
-	      <a href="#" ng-click="default_project.projectnameEnabled=!default_project.projectnameEnabled">Save</a>
-	    </span>
-
-
-    </div>
-    <div class="row" style="padding:0px">
-    <div class="col" style="padding:0px">
-    <div class="list-title-span" style="padding-top:0px">Leader</div>
-    <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
-    <br>
-    <div class="list-title-span">Participants</div>
-    <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px; color:grey"></a>
-    </div>
+      <div class="row" style="padding:0px">
+        <div class="col" style="padding:0px">
+          <div class="list-title-span" style="padding-top:0px">Leader (you)</div>
+          <img class="img-rounded" src="img/adam.jpg" height="45" width="45">
+          <br>
+          <div class="list-title-span">Participants</div>
+          <img ng-repeat="img_idx in participants" ng-src="img/faces/{{img_idx}}.jpg" class="img-rounded">
+          <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px; color:grey"></a>
+        </div>
         <div class="col" style="padding:0px">
           <div class="row" style="padding:0px">
-          <textarea rows="2" cols="20" style="border:dashed 1px grey; padding:5px; margin:5px;" placeholder="#ProjectName"></textarea></div>
+            <textarea rows="2" cols="20" style="border:dashed 1px grey; padding:5px; margin:5px;" placeholder="#ProjectName"></textarea>
+          </div>
           <div class="row" style="padding:0px">
-          <textarea rows="4" cols="20" style="border:dashed 1px grey; padding:5px; margin:5px;" placeholder="Project Description"></textarea></div>
+            <textarea rows="4" cols="20" style="border:dashed 1px grey; padding:5px; margin:5px;" placeholder="Project Description"></textarea>
+          </div>
 
         </div>
       </div>
-    <div class="list-title-span">Tasks</div>
-    <textarea rows="1" cols="25" style="border:dashed 1px grey;padding: 5px;" placeholder="Task Name" ></textarea>
-    <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px; color:grey"></a>
+      <div class="list-title-span">Bulblers around you that have similar ideas</div>
+      <img ng-repeat="img_idx in interessted_ppl" ng-src="img/faces/{{img_idx}}.jpg" class="img-rounded" ng-click="add_parti(img_idx)">
+      <div class="thinnest-font padding-left" ng-if="interessted_ppl.length==0" style="font-style:italic;">load more...</div>
+      <div class="list-title-span">Tasks</div>
+      <textarea rows="1" cols="25" style="border:dashed 1px grey;padding: 5px;" placeholder="Task Name"></textarea>
+      <a class="button button-small button-icon icon ion-plus-round" style="padding: 9px 4px 1px; color:grey"></a>
 
-    <br>
-    <div class="text-center">
-      <a class="button button-clear button-assertive" style="text-align: left;"  href="#tab/account/edit">
-			  Done
-		</a>
-    </div>
-    <a class="button button-block" href="#tab/ideas">
-                  Back to Idea Cloud
-                </a>
+      <br>
+      <div class="text-center">
+        <!-- <button class="button button-clear button-assertive" ng-click="" style="text-align: left;" href="#tab/account/edit">Done</button> -->
+        <button class="button button-clear button-assertive" ng-click="done()" style="text-align: left;">Done</button>
+      </div>
+      <a class="button button-block" href="#tab/ideas">Back to Idea Cloud</a>
     </div>
   </ion-content>
 </ion-view>

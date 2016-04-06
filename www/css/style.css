@@ -1,6 +1,8 @@
 /* Empty. Add your own CSS if you like */
 
 .img-rounded {
+  margin-left: 3px;
+  margin-right: 3px;
   max-width: 40px;
   max-height: 40px;
   width: 100%;
@@ -17,6 +19,7 @@ div.idea-album-title {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 textarea {
   -webkit-appearance: none;
@@ -80,4 +83,7 @@ a {
 }
 .pull-left {
   float: left;
+}
+.color-transprant{
+  opacity: 0;
 }

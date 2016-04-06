@@ -199,20 +199,20 @@ angular.module('starter.services', [])
         projects: [{
           name: "Be a tutor for high schoolers taking the AP exam in CS",
           faces: [{
-            url: "img/mike.png"
+            url: "img/faces/1.jpg"
           }, {
-            url: "img/mike.png"
+            url: "img/faces/12.jpg"
           }, {
-            url: "img/mike.png"
+            url: "img/faces/13.jpg"
           }]
         }, {
           name: "Increase the Influence of Woman in Comp Science",
           faces: [{
-            url: "img/perry.png"
+            url: "img/faces/34.jpg"
           }, {
-            url: "img/perry.png"
+            url: "img/faces/23.jpg"
           }, {
-            url: "img/perry.png"
+            url: "img/faces/77.jpg"
           }]
         }]
 
@@ -221,20 +221,20 @@ angular.module('starter.services', [])
         projects: [{
           name: "Meetup to discuss strategy this Friday",
           faces: [{
-            url: "img/max.png"
+            url: "img/faces/24.jpg"
           }, {
-            url: "img/max.png"
+            url: "img/faces/13.jpg"
           }, {
-            url: "img/max.png"
+            url: "img/faces/67.jpg"
           }]
         }, {
           name: "Another project for against discrimintion",
           faces: [{
-            url: "img/ben.png"
+            url: "img/faces/4.jpg"
           }, {
-            url: "img/ben.png"
+            url: "img/faces/93.jpg"
           }, {
-            url: "img/ben.png"
+            url: "img/faces/47.jpg"
           }]
         }]
 

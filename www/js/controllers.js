@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
+angular.module('starter.controllers', ['ksSwiper', ])
 
 .controller('IdeasCtrl', function($scope, Ideas) {
   ideas = Ideas.all();
@@ -31,13 +31,62 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
 })
 
 .controller('IdeasAlbumCtrl', function($scope, $state, $location, $stateParams, Ideas, $ionicPopup, $timeout) {
+  var img_idx_array = new Array(99);
+  for (var i = 1; i < 100; i++) {
+    img_idx_array[i - 1] = i;
+  }
+  $scope.img_idx_selected_array = new Array(0);
+  $scope.searching_loading = false;
+  $scope.prompt_interested_people = "";
+  $scope.search_data = {
+    text: ''
+  }
+  var search_promise = null;
+  $scope.test_name = "1";
+  $scope.$watch('search_data.text', function(newValue, oldValue) {
+    $scope.searching_loading = true;
+    if (newValue != "") {
+      if (search_promise) {
+        $timeout.cancel(search_promise);
+      }
+      search_promise = $timeout(function() {
+        var selected_size = Math.floor(Math.random() * 40);
+        if (selected_size == 0) {
+          $scope.prompt_interested_people = "Hi Bubler! You are the first one in your area with '" + newValue + "' in mind, why not create your first project under that idea!";
+        } else {
+          $scope.prompt_interested_people = selected_size + " bulbers around you are also interested in '" + newValue + "'";
+        }
+        //console.log("selected_size"+selected_size);
+        $scope.img_idx_selected_array = getRandomSubarray(img_idx_array, selected_size);
+        //console.log("array: "+$scope.img_idx_selected_array);
+        $scope.searching_loading = false;
+      }, 1000)
+    } else {
+      if (search_promise) {
+        $timeout.cancel(search_promise);
+      }
+    }
+  });
+
+  var getRandomSubarray = function(arr, size) {
+    var shuffled = arr.slice(0),
+      i = arr.length,
+      min = i - size,
+      temp, index;
+    while (i-- > min) {
+      index = Math.floor((i + 1) * Math.random());
+      temp = shuffled[index];
+      shuffled[index] = shuffled[i];
+      shuffled[i] = temp;
+    }
+    return shuffled.slice(min);
+  }
   $scope.ideas = Ideas.get($stateParams.categoryId);
   $scope.showing_ideas = new Array($scope.ideas.ideas.length).fill(true);
   $scope.liked_ideas = new Array($scope.ideas.ideas.length).fill(false);
   $scope.project_showing_idx = new Array($scope.ideas.ideas.length).fill(0);
   $scope.swiper = {
     autoHeight: "true",
-
   };
 
   $scope.onReadySwiper = function(swiper) {
@@ -45,7 +94,13 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
     swiper.on('slideChangeEnd', function() {
       $scope.showing_ideas.fill(true);
       $scope.$apply();
-
+      console.log("slidechangeend");
+    });
+    swiper.on('reachBeginning', function() {
+      console.log("onReachBeginning");
+    });
+    swiper.on('reachEnd', function() {
+      console.log("onReachEnd");
     });
   };
 
@@ -142,15 +197,43 @@ angular.module('starter.controllers', ['ksSwiper', 'angular-jqcloud'])
     };
 
   })
-  .controller('particctrl', function($scope, $stateParams,ParticProjects) {
+  .controller('particctrl', function($scope, $stateParams, ParticProjects) {
     $scope.project = ParticProjects.get($stateParams.id);
   })
   .controller('RandomProjectCtrl', function($scope, $stateParams, RandomProjects) {
     $scope.project = RandomProjects.get($stateParams.id);
   })
-  .controller('ProjectCreateCtrl', function($scope, $stateParams, CreateProjects) {
+  .controller('ProjectCreateCtrl', function($scope, $stateParams, $ionicLoading, $timeout, $state, $ionicHistory, CreateProjects) {
+
+    $scope.done = function() {
+      console.log("hey");
+      $ionicLoading.show({
+        template: 'Project Created'
+      });
+
+      $timeout(function() {
+        $ionicLoading.hide();
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        $state.go('tab.ideas', {
+          cache: false
+        });
+      }, 1000)
+
+    }
+
+
     $scope.idea_name = $stateParams.idea_name;
-    $scope.default_project = CreateProjects.all();
+    $scope.interessted_ppl = [1, 2, 3, 5, 6];
+    $scope.participants = [];
+    $scope.add_parti = function(idx) {
+      var i = $scope.interessted_ppl.indexOf(idx);
+      if (i != -1) {
+        $scope.interessted_ppl.splice(i, 1);
+      }
+      $scope.participants.push(idx);
+    }
   })
   .controller('AccountEditCtrl', function($scope, Account) {
     $scope.accountInfo = Account.all();
