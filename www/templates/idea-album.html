@@ -1,5 +1,4 @@
-<ion-view view-title="Ideas">
-
+<ion-view view-title="{{ideas.category}}">
   <ion-content class="padding" scroll="false">
     <style>
       .textslide.leftright-border {
@@ -18,9 +17,9 @@
 
       div.textslide {
         height: 35vh;
-        /*border-style: dashed;
-        border-color: grey;
-        border-width: 1px;*/
+        border-style: groove;
+        border-color: rgba(128, 128, 128, 0.3);
+        border-width: 2px;
         /*background-color: rgba(220, 220, 220, 0.42);*/
         padding: 10px;
       }
@@ -48,13 +47,16 @@
         font-weight: 100;
       }
 
-      .new-idea-popup .popup-sub-title {
+      /*.new-idea-popup .popup-sub-title {
         font-size: 15px;
         font-weight: 100;
-      }
-
+      }*/
       .new-idea-popup .popup-head {
+        padding-bottom:5px;
         border-style: none;
+      }
+      .new-idea-popup .popup-body {
+        height:30vh;
       }
 
       .new-idea-popup .popup-buttons {
@@ -95,9 +97,13 @@
         font-weight: 200;
       }
 
-      .nav-icon{
-        color:#F44336;
+      .nav-icon {
+        color: #F44336;
         font-size: 20px;
+      }
+      #big-idea-input{
+        /*border:1px dashed #999999;
+        height:20vh*/
       }
     </style>
     <div class="item-input-inset" style="padding: 0;">
@@ -112,37 +118,34 @@
 
     <div class="text-center" ng-if="search_data.text==''">
       <div class="idea-album-title">
-        <h2 style="font-weight: 200;font-size: 25px;">
-        {{ideas.category}}
-        <a style="padding-top:3px; color:#FFEB3B;" class="button button-small button-icon icon ion-android-bulb" ng-click="showPopup()"></a>
-      </h2>
+        <a style="color:#FFEB3B; font-size: 50px;" class="padding-vertical" ng-class="{'not-show':!showing_ideas[swiper.activeIndex]}" ng-click="showPopup()"><i class="icon ion-android-bulb"></i></a>
       </div>
-
-      <div id="slider" class="myslides padding-top">
-        <ks-swiper-container loop="false" slides-per-view="1" space-between="5" swiper="swiper" resistance="false" show-nav-buttons="false" space-between="5" pagination-clickable="false" on-ready="onReadySwiper(swiper)">
+      <div id="slider" class="" style="padding-top:20px">
+        <ks-swiper-container loop="false" slides-per-view="1" swiper="swiper" resistance="false" show-nav-buttons="false" space-between="5" pagination-clickable="false" on-ready="onReadySwiper(swiper)">
           <ks-swiper-slide ng-repeat="idea in ideas.ideas">
 
-            <!-- <div class="textslide  padding-bottom" ng-class="{'leftright-border': showing_ideas[$index], 'updown-border': !showing_ideas[$index]}" on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]"> -->
             <div class="textslide  padding-bottom" on-swipe-up="onSwipeUp($index)" on-swipe-down="onSwipeDown($index)" ng-click="showing_ideas[$index]=!showing_ideas[$index]">
-              <span ng-hide="!showing_ideas[$index]||$last" class="nav-icon ion-ios-arrow-right" style="top: 16vh;position: absolute;right: 5px;"></span>
-              <span ng-hide="!showing_ideas[$index]||$first" class="nav-icon ion-ios-arrow-left" style="top: 16vh;position: absolute;left: 5px;"></span>
-              <!-- <span ng-hide="showing_ideas[$index]||project_showing_idx[$index] == 0" class="ion-ios-arrow-up" style=" font-size:20px;top: 0vh;position: absolute;left: 49%;color: grey;"></span>
-              <span ng-hide="showing_ideas[$index]||project_showing_idx[$index] == idea.projects.length-1" class="ion-ios-arrow-down" style=" font-size:20px;top:32vh;position: absolute;left: 49%;color: grey;"></span> -->
-
-
-              <div ng-if="showing_ideas[$index]" class="padding-horizontal vertical-center">
+              <div ng-hide="!showing_ideas[$index]||$last" style="display:block; position: absolute;right: 5px;height: 32vh;width: 20px;z-index: 9999;" ng-click="swiper.slideNext()">
+                <span class="nav-icon ion-ios-arrow-right" style="top: 13vh;position: absolute;"></span>
+              </div>
+              <div ng-hide="!showing_ideas[$index]||$first" style="display:block;position: absolute;left: 5px;height: 32vh;width: 20px;z-index: 9999;" ng-click="swiper.slidePrev()">
+                <span class="nav-icon ion-ios-arrow-left" style="left: 0px;top: 13vh;position: absolute;"></span>
+              </div>
+              <div class="pull-left hint-text" style="position: absolute;top: 3px;left: 7px;">{{showing_ideas[$index]?"Idea": "Project"}}</div>
+              <div ng-if="showing_ideas[$index]" class="vertical-center padding-horizontal">
                 <span style="font-weight:200;font-size: 30px; line-height: 30px;">{{idea.name}}</span>
               </div>
+
+
+
+
               <div ng-if="!showing_ideas[$index]" class="padding-horizontal vertical-center">
-                <!-- <span ng-hide="showing_ideas[$index]||project_showing_idx[$index] == 0" class="ion-ios-arrow-up" style=" font-size:20px;top: 0vh;position: absolute;left: 49%;color: grey;"></span> -->
-                <div ng-class="{'color-transprant': project_showing_idx[$index] == 0}" class="nav-icon ion-ios-arrow-up" style="left: 49%;"></div>
+                <div ng-click="prevProj($event,$index)" ng-class="{'not-show': project_showing_idx[$index] == 0}" class="nav-icon ion-ios-arrow-up" style="left: 49%;"></div>
                 <a class="card-project-name " ng-href="#tab/ideas/random-project/{{idea.projects[project_showing_idx[$index]].id}}">
                       {{idea.projects[project_showing_idx[$index]].name}}
               </a>
-              <div ng-class="{'color-transprant': project_showing_idx[$index] == idea.projects.length-1}" class="nav-icon ion-ios-arrow-down" style="left: 49%;"></div>
-                <!-- <span ng-hide="showing_ideas[$index]||project_showing_idx[$index] == idea.projects.length-1" class="ion-ios-arrow-down" style=" font-size:20px;top:32vh;position: absolute;left: 49%;color: grey;"></span> -->
+                <div ng-click="nextProj($event,$index)" ng-class="{'not-show': project_showing_idx[$index] == idea.projects.length-1}" class="nav-icon ion-ios-arrow-down" style="left: 49%;"></div>
 
-                <br>
               </div>
               <div ng-if="!showing_ideas[$index]" class="foot-note">
                 {{project_showing_idx[$index] + 1}}/{{idea.projects.length}}
@@ -151,7 +154,7 @@
             <div ng-if="!showing_ideas[$index]" class="padding-top">
               <img ng-src="{{face.url}}" class="img-rounded" ng-repeat="face in idea.projects[project_showing_idx[$index]].faces">
             </div>
-            <div class="row">
+            <div ng-if="showing_ideas[$index]" class="row">
               <div class="col">
                 <i id="like" style="font-size:45px" ng-class="{'icon ion-ios-heart  liked-color': liked_ideas[$index], 'icon ion-ios-heart-outline not-liked-color': !liked_ideas[$index]}" ng-click="liked_ideas[$index]=!liked_ideas[$index]">
               </i>

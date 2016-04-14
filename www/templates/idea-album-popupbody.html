@@ -1,0 +1,59 @@
+<style>
+  .input {
+    position: relative;
+    display: inline-block;
+    margin: 1em;
+    max-width: 350px;
+    width: calc(100% - 2em);
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .input__field#input_big_idea {
+    text-align: center;
+    padding: 0.5em;
+    width: 60%;
+    border: 1px dashed #999999;
+    color: #000000;
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: transparent;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  .input__label-content {
+    text-align: center;
+    display: block;
+    padding: 9vh 0;
+    font-weight: 100;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+  }
+
+  .input__field--akira:focus + .input__label--akira,
+  .input--filled .input__label--akira {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .input__field--akira:focus + .input__label--akira .input__label-content--akira,
+  .input--filled .input__label-content--akira {
+    /*-webkit-transform: translate3d(0, -5.2em, 0);
+    transform: translate3d(0, -5.2em, 0);*/
+    transform: translateY(-63%);
+    -webkit-transform: translateY(-63%);
+  }
+</style>
+<!-- <textarea type="text" id="big-idea-input" ng-model="data.wifi">asd</textarea> -->
+<span class="input input--akira" ng-class="{'input--filled':data.idea_name!=''}">
+  <textarea class="input__field input__field--akira" type="text" id="input_big_idea" ng-model="data.idea_name"></textarea>
+  <label class="input__label input__label--akira" id="label_big_idea" for="input_big_idea">
+    <span class="input__label-content input__label-content--akira">What's your big idea?</span>
+</label>
+</span>

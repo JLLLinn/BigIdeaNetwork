@@ -5,9 +5,9 @@ angular.module('starter.controllers', ['ksSwiper', ])
   words = [];
   $scope.searching = false;
   $scope.search_data = {
-      text: ''
-    }
-    //var log = [];
+    text: ''
+  };
+  //var log = [];
   angular.forEach(ideas, function(value, key) {
     words.push({
       'text': value.category,
@@ -19,9 +19,9 @@ angular.module('starter.controllers', ['ksSwiper', ])
   $scope.words = words;
 
 
-  $scope.matched_ideas = new Array();
+  $scope.matched_ideas = [];
   $scope.$watch('search_data.text', function(newValue, oldValue) {
-    if (newValue != "") {
+    if (newValue !== "") {
       $scope.searching = true;
       $scope.matched_ideas = Ideas.search_category(newValue);
     } else {
@@ -40,18 +40,18 @@ angular.module('starter.controllers', ['ksSwiper', ])
   $scope.prompt_interested_people = "";
   $scope.search_data = {
     text: ''
-  }
+  };
   var search_promise = null;
   $scope.test_name = "1";
   $scope.$watch('search_data.text', function(newValue, oldValue) {
     $scope.searching_loading = true;
-    if (newValue != "") {
+    if (newValue !== "") {
       if (search_promise) {
         $timeout.cancel(search_promise);
       }
       search_promise = $timeout(function() {
         var selected_size = Math.floor(Math.random() * 40);
-        if (selected_size == 0) {
+        if (selected_size === 0) {
           $scope.prompt_interested_people = "Hi Bubler! You are the first one in your area with '" + newValue + "' in mind, why not create your first project under that idea!";
         } else {
           $scope.prompt_interested_people = selected_size + " bulbers around you are also interested in '" + newValue + "'";
@@ -60,7 +60,7 @@ angular.module('starter.controllers', ['ksSwiper', ])
         $scope.img_idx_selected_array = getRandomSubarray(img_idx_array, selected_size);
         //console.log("array: "+$scope.img_idx_selected_array);
         $scope.searching_loading = false;
-      }, 1000)
+      }, 1000);
     } else {
       if (search_promise) {
         $timeout.cancel(search_promise);
@@ -80,7 +80,7 @@ angular.module('starter.controllers', ['ksSwiper', ])
       shuffled[i] = temp;
     }
     return shuffled.slice(min);
-  }
+  };
   $scope.ideas = Ideas.get($stateParams.categoryId);
   $scope.showing_ideas = new Array($scope.ideas.ideas.length).fill(true);
   $scope.liked_ideas = new Array($scope.ideas.ideas.length).fill(false);
@@ -93,17 +93,19 @@ angular.module('starter.controllers', ['ksSwiper', ])
 
     swiper.on('slideChangeEnd', function() {
       $scope.showing_ideas.fill(true);
+      $scope.project_showing_idx.fill(0);
       $scope.$apply();
-      console.log("slidechangeend");
-    });
-    swiper.on('reachBeginning', function() {
-      console.log("onReachBeginning");
-    });
-    swiper.on('reachEnd', function() {
-      console.log("onReachEnd");
     });
   };
+  $scope.prevProj = function($event, idx) {
+    $event.stopPropagation();
+    $scope.project_showing_idx[idx] = $scope.project_showing_idx[idx] - 1;
+  };
 
+  $scope.nextProj = function($event, idx) {
+    $event.stopPropagation();
+    $scope.project_showing_idx[idx] = $scope.project_showing_idx[idx] + 1;
+  };
   $scope.onSwipeDown = function(idx) {
     if (!$scope.showing_ideas[idx]) {
       var cur_proj_idx = $scope.project_showing_idx[idx];
@@ -114,7 +116,7 @@ angular.module('starter.controllers', ['ksSwiper', ])
         $scope.project_showing_idx[idx] -= 1;
       }
     }
-  }
+  };
   $scope.onSwipeUp = function(idx) {
     if (!$scope.showing_ideas[idx]) {
       var cur_proj_idx = $scope.project_showing_idx[idx];
@@ -125,18 +127,28 @@ angular.module('starter.controllers', ['ksSwiper', ])
         $scope.project_showing_idx[idx] += 1;
       }
     }
-  }
+  };
 
   // Triggered on a button click, or some other target
   $scope.showPopup = function() {
-    $scope.data = {};
+    $scope.data = {
+      "idea_name":""
+    };
 
     // An elaborate, custom popup
+    /*jshint multistr: true */
     var myPopup = $ionicPopup.show({
-      template: '<textarea type="text" style="border:1px dashed #999999; height:20vh" ng-model="data.wifi"></textarea>',
+      // template: "<span class='input input--akira'>\
+      //           	<input class='input__field input__field--akira' id='input-1' />\
+      //           	<label class='input__label input__label--akira' for='input-1'>\
+      //           		<span class='input__label-content input__label-content--akira'>What's your Big Idea</span>\
+      //           	</label>\
+      //           </span>",
+      // template: '<textarea type="text" id="big-idea-input" ng-model="data.idea_name"></textarea>',
+      templateUrl: 'templates/idea-album-popupbody.html',
       title: $scope.ideas.category,
       cssClass: 'new-idea-popup',
-      subTitle: "What's your big idea?",
+      // subTitle: "What's your big idea?",
       scope: $scope,
       buttons: [{
         text: 'Cancel',
@@ -145,15 +157,15 @@ angular.module('starter.controllers', ['ksSwiper', ])
         text: 'Go',
         type: 'button-small button-clear button-positive',
         onTap: function(e) {
-          if (!$scope.data.wifi) {
+          if (!$scope.data.idea_name) {
             //don't allow the user to close unless he enters wifi password
             e.preventDefault();
           } else {
             //$location.path("/tab/account/project-edit");
             $state.go('tab.project-create', {
-              'idea_name': $scope.data.wifi
+              'idea_name': $scope.data.idea_name
             });
-            return $scope.data.wifi;
+            return $scope.data.idea_name;
           }
         }
       }]
@@ -219,9 +231,9 @@ angular.module('starter.controllers', ['ksSwiper', ])
         $state.go('tab.ideas', {
           cache: false
         });
-      }, 1000)
+      }, 1000);
 
-    }
+    };
 
 
     $scope.idea_name = $stateParams.idea_name;
@@ -233,7 +245,7 @@ angular.module('starter.controllers', ['ksSwiper', ])
         $scope.interessted_ppl.splice(i, 1);
       }
       $scope.participants.push(idx);
-    }
+    };
   })
   .controller('AccountEditCtrl', function($scope, Account) {
     $scope.accountInfo = Account.all();
