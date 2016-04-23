@@ -135,6 +135,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
       }
     }
   })
+.state('tab.newsfeed', {
+    url: '/news',
+    views: {
+      'tab-news': {
+        templateUrl: 'templates/news.html',
+        controller: 'NewsProjectCtrl'
+      }
+    }
+  })
  ;
 
   // if none of the above states are matched, use this as the fallback

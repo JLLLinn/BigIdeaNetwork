@@ -192,6 +192,13 @@ angular.module('starter.controllers', ['ksSwiper', ])
   };
 })
 
+.controller('NewsProjectCtrl', function($scope, News) {
+  $scope.news = News.all();
+  /*$scope.remove = function(project_chat, chat) {
+    Chats.remove(project_chat, chat);
+  };*/
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })

@@ -69,6 +69,34 @@ angular.module('starter.services', [])
        }
     };
   })
+.factory('News', function() {
+    // Might use a resource here that returns a JSON array
+
+    var news = []
+
+    ;
+
+    return {
+      all: function() {
+        return news;
+      },
+      /*remove: function(project_chat, chat) {
+        project_chat = chats[chats.indexOf(project_chat)];
+        project_chat.taskChats.splice(project_chat.taskChats.indexOf(chat), 1);
+      },
+       get: function(chatId) {
+         for (var i = 0; i < chats.length; i++) {
+          for (var j=0; j<chats[i].taskChats.length; j++){
+           if (chats[i].taskChats[j].id === parseInt(chatId)) {
+             return chats[i].taskChats[j];
+           }
+          }
+         }
+         return null;
+       }*/
+    };
+  })
+
   .factory('Ideas', function() {
     // Might use a resource here that returns a JSON array
 
