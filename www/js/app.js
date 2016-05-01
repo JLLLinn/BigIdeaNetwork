@@ -32,12 +32,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
+  // routing for login
+  .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+  })
+
+  .state('newPost', {
+        url: "/newPost",
+        templateUrl: 'templates/new-post.html',
+        controller: 'NewPostCtrl'
+    })
   // Each tab has its own nav history stack:
 
   .state('tab.ideas', {
@@ -147,6 +159,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
  ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/ideas');
+  $urlRouterProvider.otherwise('/login');
 
 });

@@ -1,5 +1,24 @@
 angular.module('starter.controllers', ['ksSwiper', ])
 
+.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+    $scope.data = {};
+ 
+    $scope.login = function() {
+        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+            $state.go('tab.dash');
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed!',
+                template: 'Please check your credentials!'
+            });
+        });
+    }
+})
+
+.controller('NewPostCtrl', function($scope, Posts) {
+  $scope.posts = Posts.all();
+})
+
 .controller('IdeasCtrl', function($scope, Ideas) {
   ideas = Ideas.all();
   words = [];
