@@ -227,6 +227,9 @@ angular.module('starter.controllers', ['ksSwiper', ])
       enableFriends: false
     };
     $scope.accountInfo = Account.all();
+    $scope.step_remove = function(step) {
+      Account.step_remove(step);
+    };
   })
   .controller('projectctrl', function($scope, Project) {
     $scope.project = Project.all();

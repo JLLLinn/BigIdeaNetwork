@@ -1,21 +1,21 @@
 <ion-view view-title="Login" name="login-view" hide-nav-bar="true">
     <style>
-        .scroll-content {
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("img/bg2.png") no-repeat center center;
+        #login-content {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("img/bg2.png") no-repeat center center;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
         }
     </style>
-    <ion-content class="padding" >
-         <form>
+    <ion-content class="padding" id="login-content">
+        <form>
             <div class="row responsive-md">
                 <div class="col col-50 col-offset-25">
 
                     <div class="header padding text-center">
-                        <img src="img/bulb4.png"/>
-                        <h1 style="color:white">Bulby.</h1>
+                        <img src="img/bulb4.png" style="width: 100%;" />
+                        <h2 style="color:white">Bulby.</h2>
                     </div>
 
                     <div class="list">
@@ -27,27 +27,27 @@
                         </label>
                     </div>
 
-                    <button class="button button-block button-positive" ng-click="login()">
+                    <a class="button button-block button-positive" ng-href="#/tab/ideas">
                         Log In
-                    </button>
+                    </a>
 
                     <div class="row row-no-padding">
-                        <div class="col">
-                            <button class="button button-clear button-light">
+                        <div class="col no-margin">
+                            <button class="button button-small button-clear button-light">
                                 Forgot password?
                             </button>
                         </div>
 
-                        <div class="col text-right">
-                            <button class="button button-clear button-light">
+                        <div class="col no-margin text-right">
+                            <button class="button button-small button-clear button-light">
                                 Sign up
                             </button>
                         </div>
                     </div>
-                    <hr width="80%" size="3">
+                    <hr width="80%" size="2">
                     <br>
                     <div class="padding text-center">
-                    <a href="#/newPost"><img align="center" src="img/Sign-In-LinkedIn-Small-Default.png"/></a>
+                    <a href="#tab/ideas"><img align="center" src="img/Sign-In-LinkedIn-Small-Default.png"/></a>
                     </div>
                 </div>
             </div>

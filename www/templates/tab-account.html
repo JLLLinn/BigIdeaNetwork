@@ -4,6 +4,12 @@
       /*margin: 10px 10px;*/
     }
 
+    .button-design{
+      border-radius: 25px;
+      background: #E8E8E8;
+      text-align: center;
+    }
+
     .project-btn-list-item {
       text-decoration: none;
       display: block;
@@ -24,6 +30,7 @@
       padding-top: 10px;
       color: #8E8E93;
       text-transform: uppercase;
+      text-align: center;
     }
 
     .list-items-wrapper {
@@ -38,50 +45,101 @@
 
     .tag {
       font-weight: 200;
+    }
+    .profile-bg{
+      position: relative;
+    }
 
+    .profile-bg:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      background-image: url(img/bg3.png); 
+      background-size: 100%;
+      background-repeat:no-repeat;
+      opacity: 0.7;
+    }
+
+    hr.first {
+      border: 0;
+      height: 1px;
+      width: 30%;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+
+    hr.profile {
+      border: 0;
+      height: 1px;
+      width: 60%;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
+    }
+
+    hr.second {
+      border: 0;
+      height: 1px;
+      width: 10%;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
     }
   </style>
-  <ion-content style="background-color: #EAEAEA; color:#4A4A4A">
+  <ion-content style="background-color: white; color:#4A4A4A">
+  <!--<ion-content style="background-color: #EAEAEA; color:#4A4A4A">-->
     <!--<ion-list>
       <ion-toggle  ng-model="settings.enableFriends">
           Enable Friends
       </ion-toggle>
       </ion-list>-->
-    <div class="text-center padding-top">
-      <h1 class="thin-font" style="color:#4A4A4A">{{accountInfo.username}}</h1>
-      <span>{{accountInfo.occupation}}</span>
+    <div class="profile-bg text-center padding-top">
+      <h1 class="thinner-font" style="color:white">{{accountInfo.username}}</h1>
+      <hr class="profile">
+      <div class="header padding text-center">
+        <img src="{{accountInfo.profile_pic}}" class="img-rounded-big" style="border: 2px solid white;"/>
+      </div>
+      <h5 class="thinner-font" style="color:white">{{accountInfo.occupation}}</h3>
+      <h5 class="thinner-font" style="color:white">{{accountInfo.origination}}</h3>
       <br>
-      <span>{{accountInfo.origination}}</span>
-
     </div>
-    <div class="list" style="    background-color: #EAEAEA;">
+    <br>
+    <div class="list" style="    background-color: white;">
       <div class="account-list-title-span">BIG IDEA</div>
-      <h4 class="thinner-font padding-left padding-right" style="margin-top: 0px;margin-bottom: 0px;color:#4A4A4A">{{accountInfo.idea}}</h4>
-      <div class="account-list-title-span">LEADING PROJECTS</div>
-      <div class="padding-horizontal list-items-wrapper">
-        <a class="project-btn-list-item" ng-class="{'border-seperate':!$last}" style="text-align: left;" href="#tab/account/my-project" ng-repeat="idea_project in accountInfo.idea_project_list ">
-        {{idea_project.name}}<i class="pull-right icon ion-chevron-right icon-accessory"></i>
-        </a>
-      </div>
-      <div class="account-list-title-span">PARTICIPTING PROJECTS</div>
-      <div class="padding-horizontal list-items-wrapper">
-        <span ng-repeat="participating_project in accountInfo.participating_project_list ">
-        <a class="project-btn-list-item " ng-class="{'border-seperate':!$last}" style="text-align: left;" ng-href="#tab/account/partic-project/{{participating_project.id}}" >
-        {{participating_project.name}} <i class="pull-right icon ion-chevron-right icon-accessory"></i>
-        </a>
-      </span>
-      </div>
+      <h4 class="thinner-font padding-left padding-right" style="margin-top: 0px;margin-bottom: 0px;color:#4A4A4A; text-align:center">{{accountInfo.idea}}</h4>
+      <hr class="first">
+      <hr class="second">
       <div class="account-list-title-span">EDUCATION</div>
-      <div class="padding-horizontal list-items-wrapper">
-        <a style="text-align: left;" href="javascript:void(0)" class="padding-right tag" ng-repeat="education in accountInfo.educations">
+      <div class="padding-horizontal list-items-wrapper" style="text-align: center;">
+        <a style="text-align: center;" href="javascript:void(0)" class="padding-right tag" ng-repeat="education in accountInfo.educations">
         &middot; {{education}}
       </a>
       </div>
+      <hr class="first">
+      <hr class="second">
       <div class="account-list-title-span">SKILLS, ENDORSEMENTS</div>
-      <div class="padding-horizontal list-items-wrapper">
-        <a style="text-align: left;" href="javascript:void(0)" class="padding-right tag" ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
+      <div class="padding-horizontal list-items-wrapper" style="text-align: center;">
+        <a style="text-align: center;" href="javascript:void(0)" class="padding-right tag" ng-repeat="skills_endorsement in accountInfo.skills_endorsements">
         &middot; {{skills_endorsement.skill}}-{{skills_endorsement.endorsements}}
       </a>
+      </div>
+      <hr class="first">
+      <hr class="second">
+    </div>
+    <div class="account-list-title-span">STEPS</div>
+      <!--<ion-list>
+        <ion-item class="item-remove-animate item-icon-right" ng-repeat="step in accountInfo.steps" type="item-text-wrap">
+          <h2>{{step.type}}</h2>
+          <p>{{step.detail}}</p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          <ion-option-button class="button-positive" ng-click="step_remove(step)">
+            Completed
+          </ion-option-button>
+        </ion-item>
+      </ion-list>-->
+      <div class="text-center">
+        <a class="button button-design" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed">1<i class="icon ion-checkmark-circled" ng-show="accountInfo.step1_completed"></i></a>
+        <a class="button button-design" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed">2<i class="icon ion-checkmark-circled" ng-show="accountInfo.step2_completed"></i></a>
+        <a class="button button-design" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed">3<i class="icon ion-checkmark-circled" ng-show="accountInfo.step3_completed"></i></a>
       </div>
     </div>
     <div class="text-center">

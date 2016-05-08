@@ -5,7 +5,11 @@ angular.module('starter.accountService', [])
 
   // Some fake testing data
   var account = {
+    profile_pic : "img/adam.jpg",
     username : "Jiaxin Lin",
+    step1_completed: false,
+    step2_completed: false,
+    step3_completed: false,
     firstname: "Jiaxin",
     lastname: "Lin",
     occupation:"VP @ Awesome Inc",
@@ -26,6 +30,16 @@ angular.module('starter.accountService', [])
         name:"Salary negotiation workshops"
       }
     ],
+    steps: [{
+        type: "First Step",
+        detail: "Read 20 newspaper and take notes"
+      }, {
+        type: "Second Step",
+        detail: "Research on more details of interested topic"
+      }, {
+        type: "Third Step",
+        detail: "Discuss with a friend"
+      }],
     educations:["UIUC", "Huazhong University", "CU Boulder"],
     skills_endorsements:[
     {
@@ -41,6 +55,9 @@ angular.module('starter.accountService', [])
   return {
     all: function() {
       return account;
+    },
+    step_remove: function(step) {
+        account.steps.splice(account.steps.indexOf(step), 1);
     }
   };
 });

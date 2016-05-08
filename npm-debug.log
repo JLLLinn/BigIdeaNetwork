@@ -1,0 +1,51 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   'ng-material-floating-button',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose install initial load of /Users/vincentho/GitHub/BigIdeaNetwork/package.json
+5 warn package.json 0try@1.1.1 No repository field.
+6 warn package.json 0try@1.1.1 No license field.
+7 verbose readDependencies loading dependencies from /Users/vincentho/GitHub/BigIdeaNetwork/package.json
+8 silly cache add args [ 'ng-material-floating-button', null ]
+9 verbose cache add spec ng-material-floating-button
+10 silly cache add parsed spec Result {
+10 silly cache add   raw: 'ng-material-floating-button',
+10 silly cache add   scope: null,
+10 silly cache add   name: null,
+10 silly cache add   rawSpec: 'ng-material-floating-button',
+10 silly cache add   spec: '/Users/vincentho/GitHub/BigIdeaNetwork/ng-material-floating-button',
+10 silly cache add   type: 'directory' }
+11 verbose addLocalDirectory /Users/vincentho/.npm/ng-material-floating-button/0.6.2/package.tgz not in flight; packing
+12 verbose tar pack [ '/Users/vincentho/.npm/ng-material-floating-button/0.6.2/package.tgz',
+12 verbose tar pack   '/Users/vincentho/GitHub/BigIdeaNetwork/ng-material-floating-button' ]
+13 verbose tarball /Users/vincentho/.npm/ng-material-floating-button/0.6.2/package.tgz
+14 verbose folder /Users/vincentho/GitHub/BigIdeaNetwork/ng-material-floating-button
+15 info prepublish ng-material-floating-button@0.6.2
+16 verbose stack TypeError: Path must be a string. Received [ 'src/mfb-directive.js',
+16 verbose stack   'mfb/dist/mfb.css',
+16 verbose stack   'mfb/src/mfb.scss' ]
+16 verbose stack     at assertPath (path.js:8:11)
+16 verbose stack     at Object.posix.resolve (path.js:426:5)
+16 verbose stack     at Packer.applyIgnores (/usr/local/lib/node_modules/npm/node_modules/fstream-npm/fstream-npm.js:109:59)
+16 verbose stack     at Packer.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/fstream-npm/node_modules/fstream-ignore/ignore.js:181:17)
+16 verbose stack     at Array.filter (native)
+16 verbose stack     at Packer.IgnoreReader.filterEntries (/usr/local/lib/node_modules/npm/node_modules/fstream-npm/node_modules/fstream-ignore/ignore.js:179:31)
+16 verbose stack     at Packer.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/fstream-npm/node_modules/fstream-ignore/ignore.js:92:12)
+16 verbose stack     at Packer.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/fstream-npm/node_modules/fstream-ignore/ignore.js:134:5)
+16 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:76:16
+16 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
+17 verbose cwd /Users/vincentho/GitHub/BigIdeaNetwork
+18 error Darwin 14.5.0
+19 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "i" "ng-material-floating-button" "--save"
+20 error node v4.2.1
+21 error npm  v2.14.7
+22 error Path must be a string. Received [ 'src/mfb-directive.js',
+22 error   'mfb/dist/mfb.css',
+22 error   'mfb/src/mfb.scss' ]
+23 error If you need help, you may report this error at:
+23 error     <https://github.com/npm/npm/issues>
+24 verbose exit [ 1, true ]
