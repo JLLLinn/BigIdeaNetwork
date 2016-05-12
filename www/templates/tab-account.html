@@ -4,12 +4,6 @@
       /*margin: 10px 10px;*/
     }
 
-    .button-design{
-      border-radius: 25px;
-      background: #E8E8E8;
-      text-align: center;
-    }
-
     .project-btn-list-item {
       text-decoration: none;
       display: block;
@@ -108,6 +102,17 @@
       <h4 class="thinner-font padding-left padding-right" style="margin-top: 0px;margin-bottom: 0px;color:#4A4A4A; text-align:center">{{accountInfo.idea}}</h4>
       <hr class="first">
       <hr class="second">
+      <div class="account-list-title-span">STEPS</div>
+      <div class="text-center">
+        <a class="button button-design-ongoing" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed" ng-hide="accountInfo.step1_completed">1</a>
+        <a class="button button-design-done" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed" ng-show="accountInfo.step1_completed">1</a>
+        <a class="button button-design-ongoing" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed" ng-hide="accountInfo.step2_completed">2</a>
+        <a class="button button-design-done" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed" ng-show="accountInfo.step2_completed">2</a>
+        <a class="button button-design-ongoing" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed" ng-hide="accountInfo.step3_completed">3</a>
+        <a class="button button-design-done" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed" ng-show="accountInfo.step3_completed">3</a>
+      </div>
+      <hr class="first">
+      <hr class="second">
       <div class="account-list-title-span">EDUCATION</div>
       <div class="padding-horizontal list-items-wrapper" style="text-align: center;">
         <a style="text-align: center;" href="javascript:void(0)" class="padding-right tag" ng-repeat="education in accountInfo.educations">
@@ -125,7 +130,6 @@
       <hr class="first">
       <hr class="second">
     </div>
-    <div class="account-list-title-span">STEPS</div>
       <!--<ion-list>
         <ion-item class="item-remove-animate item-icon-right" ng-repeat="step in accountInfo.steps" type="item-text-wrap">
           <h2>{{step.type}}</h2>
@@ -136,11 +140,6 @@
           </ion-option-button>
         </ion-item>
       </ion-list>-->
-      <div class="text-center">
-        <a class="button button-design" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed">1<i class="icon ion-checkmark-circled" ng-show="accountInfo.step1_completed"></i></a>
-        <a class="button button-design" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed">2<i class="icon ion-checkmark-circled" ng-show="accountInfo.step2_completed"></i></a>
-        <a class="button button-design" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed">3<i class="icon ion-checkmark-circled" ng-show="accountInfo.step3_completed"></i></a>
-      </div>
     </div>
     <div class="text-center">
       <a class="button button-clear button-assertive" style="text-align: left;" href="#tab/account/edit">

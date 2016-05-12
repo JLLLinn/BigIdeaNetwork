@@ -22,6 +22,21 @@
   box-shadow: 0 0 3px gray;
 }
 
+.button-design-ongoing{
+  border-radius: 25px;
+  border: solid;
+  border-color: white;
+  background: #E8E8E8;
+  text-align: center;
+}
+
+.button-design-done{
+  border-radius: 25px;
+  border: solid;
+  border-color: black;
+  background: #E8E8E8;
+  text-align: center;
+}
 
 div.idea-album-title {
   padding-top: 20%;

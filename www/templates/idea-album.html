@@ -28,7 +28,7 @@
         transition: opacity 0.1s;
         border-color: transparent;
         background: none;
-        color: #F12938;
+        color: #3399FF;
       }
 
       .not-liked-color {
@@ -154,9 +154,11 @@
             <div ng-if="!showing_ideas[$index]" class="padding-top">
               <img ng-src="{{face.url}}" class="img-rounded" ng-repeat="face in idea.projects[project_showing_idx[$index]].faces">
             </div>
+            <br>
+            <br>
             <div ng-if="showing_ideas[$index]" class="row">
               <div class="col">
-                <i id="like" style="font-size:45px" ng-class="{'icon ion-ios-heart  liked-color': liked_ideas[$index], 'icon ion-ios-heart-outline not-liked-color': !liked_ideas[$index]}" ng-click="liked_ideas[$index]=!liked_ideas[$index]">
+                <i id="like" style="font-size:45px" ng-class="{'icon ion-ios-bookmarks  liked-color': liked_ideas[$index], 'icon ion-ios-bookmarks-outline not-liked-color': !liked_ideas[$index]}" ng-click="liked_ideas[$index]=!liked_ideas[$index]">
               </i>
               </div>
             </div>
