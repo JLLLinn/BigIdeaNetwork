@@ -4,6 +4,19 @@
       /*margin: 10px 10px;*/
     }
 
+    .detail-box {
+      border-radius: 15px;
+      background: black;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 5px; 
+      opacity: 0.5;
+    }
+
     .project-btn-list-item {
       text-decoration: none;
       display: block;
@@ -92,8 +105,8 @@
       <div class="header padding text-center">
         <img src="{{accountInfo.profile_pic}}" class="img-rounded-big" style="border: 2px solid white;"/>
       </div>
-      <h5 class="thinner-font" style="color:white">{{accountInfo.occupation}}</h3>
-      <h5 class="thinner-font" style="color:white">{{accountInfo.origination}}</h3>
+      <h5 class="thinner-font" style="color:white">{{accountInfo.occupation}}</h5>
+      <h5 class="thinner-font" style="color:white">{{accountInfo.origination}}</h5>
       <br>
     </div>
     <br>
@@ -104,13 +117,16 @@
       <hr class="second">
       <div class="account-list-title-span">STEPS</div>
       <div class="text-center">
-        <a class="button button-design-ongoing" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed" ng-hide="accountInfo.step1_completed">1</a>
-        <a class="button button-design-done" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed" ng-show="accountInfo.step1_completed">1</a>
-        <a class="button button-design-ongoing" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed" ng-hide="accountInfo.step2_completed">2</a>
-        <a class="button button-design-done" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed" ng-show="accountInfo.step2_completed">2</a>
-        <a class="button button-design-ongoing" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed" ng-hide="accountInfo.step3_completed">3</a>
-        <a class="button button-design-done" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed" ng-show="accountInfo.step3_completed">3</a>
+        <a class="button button-design-ongoing" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed" ng-mouseover="showdetail1=true" ng-mouseleave="showdetail1=false" ng-hide="accountInfo.step1_completed">1</a>
+        <a class="button button-design-done" ng-click="accountInfo.step1_completed=!accountInfo.step1_completed" ng-mouseover="showdetail1=true" ng-mouseleave="showdetail1=false" ng-show="accountInfo.step1_completed">1</a>
+        <a class="button button-design-ongoing" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed" ng-mouseover="showdetail2=true" ng-mouseleave="showdetail2=false" ng-hide="accountInfo.step2_completed">2</a>
+        <a class="button button-design-done" ng-click="accountInfo.step2_completed=!accountInfo.step2_completed" ng-mouseover="showdetail2=true" ng-mouseleave="showdetail2=false" ng-show="accountInfo.step2_completed">2</a>
+        <a class="button button-design-ongoing" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed" ng-mouseover="showdetail3=true" ng-mouseleave="showdetail3=false" ng-hide="accountInfo.step3_completed">3</a>
+        <a class="button button-design-done" ng-click="accountInfo.step3_completed=!accountInfo.step3_completed" ng-mouseover="showdetail3=true" ng-mouseleave="showdetail3=false" ng-show="accountInfo.step3_completed">3</a>
       </div>
+      <div class="detail-box" ng-show="showdetail1"><h5 class="thinner-font" style="color:white">Some details of the step 1.</h5></div>
+      <div class="detail-box" ng-show="showdetail2"><h5 class="thinner-font" style="color:white">Some details of the step 2.</h5></div>
+      <div class="detail-box" ng-show="showdetail3"><h5 class="thinner-font" style="color:white">Some details of the step 3.</h5></div>
       <hr class="first">
       <hr class="second">
       <div class="account-list-title-span">EDUCATION</div>
@@ -144,6 +160,14 @@
     <div class="text-center">
       <a class="button button-clear button-assertive" style="text-align: left;" href="#tab/account/edit">
       Edit Profile
+      </a>
+      <br>
+      <div ng-show="contact" style="display: flex;justify-content: center;"><textarea rows="3" cols="30" style="border:dashed 1px grey;padding: 5px;" placeholder="Give us some feedback!"></textarea></div>
+      <a class="button button-clear button-assertive" style="text-align: center;" ng-click="contact=true">
+        <i class="icon ion-email"></i>
+      </a>
+      <a class="button button-clear button-assertive" style="text-align: left;" ng-show="contact">
+      Submit
       </a>
     </div>
   </ion-content>
